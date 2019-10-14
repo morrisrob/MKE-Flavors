@@ -1,0 +1,38 @@
+<div *ngIf="dataLoaded != true">
+
+    <div id="loadingSpinner" class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <br>
+            <br>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+<div *ngIf="dataLoaded">
+<div class='container'>
+    <div class='col-7' id='searchBoxDiv'>
+        <input class='form-control' id='searchBox' type="text" [(ngModel)]="term" placeholder="Search">
+    </div>
+    
+    <ng-container *ngFor="let location of locations | filter:term; let k = index ">
+        <div class="card mt-2">
+            <h5 class="card-header"><a href={{location.URL}}>{{location.name}}<span style="float:right;"><h6>{{ location.distance }} Miles</h6></span></a>
+                <div id="addressDiv">{{location.address}} - {{location.city}}</div>
+            </h5>
+
+            <ng-container *ngFor="let flavors of location.flavors; let i = index">
+                <div class="card-body">
+                    <h6 class="card-title">{{ flavors }}</h6>
+                    <ng-container *ngFor="let description of location.descriptions; let j = index">
+                    <div class="card-text">
+                        <p class="card-text" *ngIf="i === j">{{ description}}</p>
+                    </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>
+<app-footer></app-footer>
+</div>
+

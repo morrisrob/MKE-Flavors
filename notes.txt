@@ -1,0 +1,2 @@
+in updateFlavor, can't find by ObjectID; only by name. 
+

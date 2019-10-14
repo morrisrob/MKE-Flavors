@@ -1,0 +1,13 @@
+#searchBoxDiv{
+    padding-left: 0;
+    padding-top: 7px;
+}
+
+#loadingSpinner {
+    margin: auto;
+    padding: 70px 0;
+}
+
+#addressDiv {
+    font-size: small;
+}
