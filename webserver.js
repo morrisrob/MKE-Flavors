@@ -9,6 +9,14 @@ const DATABASE_NAME = "mkeflavors";
 
 var app = Express();
 
+MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }, (error, client) => {
+    if (error) {
+        throw error;
+    }
+    database = client.db(DATABASE_NAME);
+    collection = database.collection("locations");
+});
+
 // Serve static files
 app.use(Express.static(__dirname + '/dist/MKE-Flavors'));
 
@@ -19,6 +27,7 @@ app.get('/*', function (req, res) {
 
 // default Heroku port
 app.listen(process.env.PORT || 5000);
+
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
@@ -31,15 +40,15 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.listen(3000, () => {
-    MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }, (error, client) => {
-        if (error) {
-            throw error;
-        }
-        database = client.db(DATABASE_NAME);
-        collection = database.collection("locations");
-    });
-});
+// app.listen(3000, () => {
+//     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }, (error, client) => {
+//         if (error) {
+//             throw error;
+//         }
+//         database = client.db(DATABASE_NAME);
+//         collection = database.collection("locations");
+//     });
+// });
 
 app.post("/api/location", (request, response) => {
     collection.insert(request.body, (error, result) => {
