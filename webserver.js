@@ -59,12 +59,17 @@
 // console.log('server started');
 
 
-
-
+const path = require('path');
 const express = require('express');
 const app = express();
-app.use(express.static(__dirname + '/dist'));
-app.all('*', (req, res) => {
-    res.status(200).sendFile(__dirname + '/dist/index.html');
+
+// Serve static files
+app.use(express.static(__dirname + '/dist/MKE-Flavors'));
+
+// Send all requests to index.html
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname + '/dist/MKE-Flavors/index.html'));
 });
-app.listen(process.env.PORT || 8080); 
+
+// default Heroku port
+app.listen(process.env.PORT || 5000);
