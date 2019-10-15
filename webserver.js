@@ -101,6 +101,8 @@ const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = "mongodb+srv://***REMOVED***@cluster0-i9wli.mongodb.net/test?retryWrites=true&w=majority";
 const DATABASE_NAME = "mkeflavors";
 
+app.use(BodyParser.json());
+
 let database;
 let collection;
 
@@ -139,6 +141,15 @@ MongoClient.connect("mongodb+srv://***REMOVED***@cluster0-i9wli.mongodb.net/test
 //         console.log("App now running on port", port);
 //     });
 // });
+
+app.get("/api/locations", (request, response) => {
+    collection.find({}).toArray((error, result) => {
+        if (error) {
+            return response.status(500).send(error);
+        }
+        response.send(result);
+    });
+});
 
 // Serve static files
 app.use(Express.static(__dirname + '/dist/MKE-Flavors'));
