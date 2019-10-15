@@ -11,6 +11,11 @@ var app = Express();
 let database;
 let collection;
 
+app.use(BodyParser.json());
+
+var distDir = __dirname + "/dist/";
+app.use(Express.static(distDir));
+
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }, (error, client) => {
     if (error) {
         throw error;
@@ -26,8 +31,6 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology:
 
 // Serve static files
 app.use(Express.static(__dirname + '/dist/MKE-Flavors'));
-
-app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 
 app.use(function (req, res, next) {
@@ -46,9 +49,9 @@ app.get("/api/locations", (request, response) => {
 });
 
 // Send all requests to index.html
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname + '/dist/MKE-Flavors/index.html'));
-});
+// app.get('/*', function (req, res) {
+//     res.sendFile(path.join(__dirname + '/dist/MKE-Flavors/index.html'));
+// });
 
 // app.listen(3000, () => {
 //     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }, (error, client) => {

@@ -64,12 +64,12 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     
-    this.http.get('http://localhost:3000/api/locations').subscribe(data => {
-      // console.log(data);
+    // this.http.get('http://localhost:3000/api/locations').subscribe(data => {
+    //   // console.log(data);
       
-      this.locations = data;
-      console.log(this.locations);
-    });
+    //   this.locations = data;
+    //   console.log(this.locations);
+    // });
   }
   
 }
