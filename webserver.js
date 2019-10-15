@@ -104,7 +104,7 @@ const DATABASE_NAME = "mkeflavors";
 let database;
 let collection;
 
-MongoClient.connect(process.env.MONGODB_URI || CONNECTION_URL, function (err, location) {
+MongoClient.connect(CONNECTION_URL, function (err, location) {
     if (err) {
         console.log(err);
         process.exit(1);
