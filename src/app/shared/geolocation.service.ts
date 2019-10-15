@@ -44,7 +44,7 @@ export class GeolocationService {
       },
         err => {
           reject(err);
-        }, {timeout: 5000});
+        });
     });
 
   }
