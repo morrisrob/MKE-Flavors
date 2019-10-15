@@ -13,8 +13,11 @@ let collection;
 
 app.use(BodyParser.json());
 
-var distDir = __dirname + "/dist/";
-app.use(Express.static(distDir));
+// var distDir = __dirname + "/dist/";
+// app.use(Express.static(distDir));
+
+app.use(Express.static(__dirname + './dist/MKE-Flavors'));
+
 
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }, (error, client) => {
     if (error) {
