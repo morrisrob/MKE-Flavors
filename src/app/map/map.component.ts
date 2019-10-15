@@ -45,6 +45,8 @@ export class MapComponent implements OnInit {
     //   this.locations = data;
     //   console.log(this.locations);
     // });
+
+    
     this.geoLocation.getPosition().then(pos => {
       console.log(`Position: ${pos.lng} ${pos.lat}`);
       this.lng2 = pos.lng;

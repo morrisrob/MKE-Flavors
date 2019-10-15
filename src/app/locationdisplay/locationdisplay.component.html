@@ -16,7 +16,7 @@
     
     <ng-container *ngFor="let location of locations | filter:term; let k = index ">
         <div class="card mt-2">
-            <h5 class="card-header"><a href={{location.URL}}>{{location.name}}<span style="float:right;"><h6>{{ location.distance }} Miles</h6></span></a>
+            <h5 class="card-header"><a href={{location.URL}}>{{location.name}}<span *ngIf="geoLocationSupported != false" style="float:right;"><h6>{{ location.distance }} Miles</h6></span></a>
                 <div id="addressDiv">{{location.address}} - {{location.city}}</div>
             </h5>
 

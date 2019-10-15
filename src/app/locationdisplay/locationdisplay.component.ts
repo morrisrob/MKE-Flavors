@@ -27,25 +27,38 @@ export class LocationdisplayComponent implements OnInit {
   ){}
 
   async ngOnInit(): Promise <string> {
+
+    // setTimeout(this.sayHi, 1000);
+    
+
+
     this.getLocations.getLocations().then(loc => {
       this.locations = loc.loc;
       console.log(this.locations);
       this.locations.sort((a, b) => a.name.localeCompare(b.name));
 
-      this.geoLocation.getPosition().then(pos => {
-        console.log(`Position: ${pos.lng} ${pos.lat}`);
-        this.lng2 = pos.lng;
-        this.lat2 = pos.lat;
-        this.getLocationDistances();
-      })
+      this.geoLocation.getPosition()
+        .then(pos => {
+          console.log(`Position: ${pos.lng} ${pos.lat}`);
+          this.lng2 = pos.lng;
+          this.lat2 = pos.lat;
+          this.getLocationDistances();
+        })
+        .catch((err) => {
+          console.log(err.message);
+          this.geoLocationSupported = false;
+          this.dataLoaded = true;
+        });
     })
-    // console.log('build v2');
-    // this.getGeoLocation()
-    // this.getLocationsFromAPI();
-    // // this.getLocationsFromAPI();
-    // setTimeout(this.getLocationDistances, 10000);
     return 'yeah';
   }
+ 
+  timeoutDisplayLocations = () => {
+    this.geoLocationSupported = false;
+    this.dataLoaded = true;
+    console.log('timeout ran');
+  }
+
 
   getLocationsFromAPI = () => {
     this.http.get('/api/locations').subscribe(data => {
@@ -70,19 +83,6 @@ export class LocationdisplayComponent implements OnInit {
     }
     console.log('getgeolocation ran');
   } 
-
-  //  startApp() {
-  //   setTimeout(function () {
-  //     this.getGeoLocation();
-  //     console.log('getGeoLocation');
-  //   }, 2000);
-  //   setTimeout(function () {
-  //     this.getLocationsFromAPI();
-  //   }, 2000);
-  //   setTimeout(function () {
-  //     this.getLocationDistances();
-  //   }, 2000);
-  // } 
 
   getLocationDistances = () => {
     console.log('getlocationsdistances ran')

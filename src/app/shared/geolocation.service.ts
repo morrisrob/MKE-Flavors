@@ -39,7 +39,8 @@ export class GeolocationService {
 
   getPosition(): Promise<any> {
     return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resp => {
+      navigator.geolocation.getCurrentPosition
+      (resp => {
         resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
       },
         err => {
@@ -48,5 +49,19 @@ export class GeolocationService {
     });
 
   }
+
+  getCurrentPosition() {
+  if (navigator.geolocation) {
+    return new Promise(
+      (resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject)
+    )
+  } else {
+    return new Promise(
+      resolve => resolve({})
+    )
+  }
+}
+
+
 
 }
