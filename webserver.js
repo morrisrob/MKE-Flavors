@@ -94,6 +94,15 @@
 const path = require('path');
 const Express = require('express');
 const app = Express();
+const BodyParser = require("body-parser");
+const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require("mongodb").ObjectID;
+
+const CONNECTION_URL = "mongodb+srv://***REMOVED***@cluster0-i9wli.mongodb.net/test?retryWrites=true&w=majority";
+const DATABASE_NAME = "mkeflavors";
+
+let database;
+let collection;
 
 // Serve static files
 app.use(Express.static(__dirname + '/dist/MKE-Flavors'));
@@ -105,3 +114,17 @@ app.get('/*', function (req, res) {
 
 // default Heroku port
 app.listen(process.env.PORT || 5000);
+
+MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }, (error, client) => {
+    if (error) {
+        throw error;
+    }
+    database = client.db(DATABASE_NAME);
+    collection = database.collection("locations");
+
+    // var server = app.listen(process.env.PORT || 8080, function () {
+    //     var port = server.address().port;
+    //     console.log("App now running on port", port);
+    // });
+});
+
