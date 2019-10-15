@@ -16,9 +16,6 @@ app.use(BodyParser.json());
 // var distDir = __dirname + "/dist/";
 // app.use(Express.static(distDir));
 
-app.use(Express.static(__dirname + './dist/MKE-Flavors'));
-
-
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }, (error, client) => {
     if (error) {
         throw error;
@@ -32,8 +29,10 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology:
     });
 });
 
-// Serve static files
+app.use(Express.static(__dirname + './dist/MKE-Flavors'));
 app.use(Express.static(__dirname + '/dist/MKE-Flavors'));
+
+// Serve static files
 app.use(BodyParser.urlencoded({ extended: true }));
 
 app.use(function (req, res, next) {
@@ -49,6 +48,10 @@ app.get("/api/locations", (request, response) => {
         }
         response.send(result);
     });
+});
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname + '/dist/MKE-Flavors/index.html'));
 });
 
 // Send all requests to index.html
