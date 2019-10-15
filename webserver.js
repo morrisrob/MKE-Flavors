@@ -113,7 +113,8 @@ MongoClient.connect("mongodb+srv://***REMOVED***@cluster0-i9wli.mongodb.net/test
     }
 
     // Save database object from the callback for reuse.
-    database = location.db();
+    database = location.db(DATABASE_NAME);
+    collection = database.collection("locations");
     console.log("Database connection ready");
 
     // Initialize the app.
@@ -166,8 +167,8 @@ app.get('/*', function (req, res) {
 //     if (error) {
 //         throw error;
 //     }
-//     database = client.db(DATABASE_NAME);
-//     collection = database.collection("locations");
+    // database = client.db(DATABASE_NAME);
+    // collection = database.collection("locations");
 
 //     // var server = app.listen(process.env.PORT || 8080, function () {
 //     //     var port = server.address().port;
