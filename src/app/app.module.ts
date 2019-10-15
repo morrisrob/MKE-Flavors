@@ -19,6 +19,7 @@ import { AddLocationComponent } from './add-location/add-location.component';
 import { FooterComponent } from './footer/footer.component';
 import { GeolocationService } from './shared/geolocation.service';
 import { GetlocationsService } from './shared/getlocations.service';
+import { TwitterfeedComponent } from './twitterfeed/twitterfeed.component';
 
 
 
@@ -35,7 +36,8 @@ import { GetlocationsService } from './shared/getlocations.service';
     LocationFilterPipe,
     MapComponent,
     AddLocationComponent,
-    FooterComponent
+    FooterComponent,
+    TwitterfeedComponent
   ],
   imports: [
     Ng2SearchPipeModule,

@@ -40,6 +40,18 @@ app.get("/api/locations", (request, response) => {
     });
 });
 
+app.post("/api/addLocation", function (request, response) {
+    let newLocation = request.body;
+
+    collection.insertOne(newLocation, function (err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to create new contact.");
+        } else {
+            res.status(201).json(doc.ops[0]);
+        }
+    });
+});
+
 // Serve static files
 app.use(Express.static(__dirname + '/dist/MKE-Flavors'));
 
