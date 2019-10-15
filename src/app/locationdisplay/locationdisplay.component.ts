@@ -31,7 +31,7 @@ export class LocationdisplayComponent implements OnInit {
   }
 
   getLocationsFromAPI = () => {
-    this.http.get('http://localhost:3000/api/locations').subscribe(data => {
+    this.http.get('/api/locations').subscribe(data => {
       this.locations = data;
       this.locations.sort((a, b) => a.name.localeCompare(b.name));
     });
