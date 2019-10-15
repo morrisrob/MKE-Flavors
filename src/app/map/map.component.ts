@@ -53,6 +53,7 @@ export class MapComponent implements OnInit {
  
     this.getLocations.getLocations().then(loc => {
       this.locations = loc;
+      console.log(this.locations);
     })
   }
 }
