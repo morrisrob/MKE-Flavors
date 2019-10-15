@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { stringify } from '@angular/compiler/src/util';
+import { GeolocationService } from '../shared/geolocation.service';
+import { GetlocationsService } from '../shared/getlocations.service';
 // import { start } from 'repl';
 
 @Component({
@@ -18,15 +20,30 @@ export class LocationdisplayComponent implements OnInit {
   geoLocationSupported: boolean;
   term: any;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(
+    private http: HttpClient, 
+    private geoLocation: GeolocationService,
+    private getLocations: GetlocationsService,
+  ){}
 
   async ngOnInit(): Promise <string> {
-    console.log('build v2');
-    this.getGeoLocation()
-    this.getLocationsFromAPI();
+    this.getLocations.getLocations().then(loc => {
+      this.locations = loc.loc;
+      console.log(this.locations);
+      this.locations.sort((a, b) => a.name.localeCompare(b.name));
+
+      this.geoLocation.getPosition().then(pos => {
+        console.log(`Position: ${pos.lng} ${pos.lat}`);
+        this.lng2 = pos.lng;
+        this.lat2 = pos.lat;
+        this.getLocationDistances();
+      })
+    })
+    // console.log('build v2');
+    // this.getGeoLocation()
     // this.getLocationsFromAPI();
-    setTimeout(this.getLocationDistances, 10000);
+    // // this.getLocationsFromAPI();
+    // setTimeout(this.getLocationDistances, 10000);
     return 'yeah';
   }
 
@@ -54,18 +71,18 @@ export class LocationdisplayComponent implements OnInit {
     console.log('getgeolocation ran');
   } 
 
-   startApp() {
-    setTimeout(function () {
-      this.getGeoLocation();
-      console.log('getGeoLocation');
-    }, 2000);
-    setTimeout(function () {
-      this.getLocationsFromAPI();
-    }, 2000);
-    setTimeout(function () {
-      this.getLocationDistances();
-    }, 2000);
-  } 
+  //  startApp() {
+  //   setTimeout(function () {
+  //     this.getGeoLocation();
+  //     console.log('getGeoLocation');
+  //   }, 2000);
+  //   setTimeout(function () {
+  //     this.getLocationsFromAPI();
+  //   }, 2000);
+  //   setTimeout(function () {
+  //     this.getLocationDistances();
+  //   }, 2000);
+  // } 
 
   getLocationDistances = () => {
     console.log('getlocationsdistances ran')
