@@ -17,6 +17,8 @@ import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './map/map.component';
 import { AddLocationComponent } from './add-location/add-location.component';
 import { FooterComponent } from './footer/footer.component';
+import { GeolocationService } from './shared/geolocation.service';
+import { GetlocationsService } from './shared/getlocations.service';
 
 
 
@@ -45,7 +47,7 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [GetdataService],
+  providers: [GetdataService, GeolocationService, GetlocationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
