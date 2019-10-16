@@ -11,3 +11,13 @@
 #addressDiv {
     font-size: small;
 }
+
+#dateDisplay {
+    padding-top: 10px;
+}
+
+#geoDistance {
+    font-size: small;
+    font-weight: normal;
+    margin-top: 10px;
+}

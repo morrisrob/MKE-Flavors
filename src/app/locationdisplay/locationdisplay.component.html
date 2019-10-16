@@ -1,3 +1,4 @@
+<div class='container' id='dateDisplay'>Here are the flavors for {{today | date:'EEEE, MMMM d, y'}}!</div>
 <div *ngIf="dataLoaded != true">
 
     <div id="loadingSpinner" class="d-flex justify-content-center">
@@ -10,16 +11,15 @@
 </div>
 <div *ngIf="dataLoaded">
 <div class='container'>
-    <div class='col-7' id='searchBoxDiv'>
+    <div id='searchBoxDiv'>
         <input class='form-control' id='searchBox' type="text" [(ngModel)]="term" placeholder="Search">
     </div>
     
     <ng-container *ngFor="let location of locations | filter:term; let k = index ">
         <div class="card mt-2">
-            <h5 class="card-header"><a href={{location.URL}}>{{location.name}}<span *ngIf="geoLocationSupported != false" style="float:right;"><h6>{{ location.distance }} Miles</h6></span></a>
-                <div id="addressDiv">{{location.address}} - {{location.city}}</div>
+            <h5 class="card-header"><a href={{location.URL}}>{{location.name}}<span id="geoDistance" *ngIf="geoLocationSupported != false" class="badge badge-pill badge-primary" style="float:right;">{{ location.distance }}<br>Miles</span></a>
+                <div id="addressDiv">{{location.address}}<br>{{location.city}}</div>
             </h5>
-
             <ng-container *ngFor="let flavors of location.flavors; let i = index">
                 <div class="card-body">
                     <h6 class="card-title">{{ flavors }}</h6>

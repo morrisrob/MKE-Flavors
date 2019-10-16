@@ -4,12 +4,18 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { stringify } from '@angular/compiler/src/util';
 import { GeolocationService } from '../shared/geolocation.service';
 import { GetlocationsService } from '../shared/getlocations.service';
+import { DatePipe } from '@angular/common';
+import {formatDate } from '@angular/common';
+
+
+
 // import { start } from 'repl';
 
 @Component({
   selector: 'app-locationdisplay',
   templateUrl: './locationdisplay.component.html',
-  styleUrls: ['./locationdisplay.component.css']
+  styleUrls: ['./locationdisplay.component.css'],
+  providers: [DatePipe]
 })
 export class LocationdisplayComponent implements OnInit {
   locations;
@@ -20,11 +26,18 @@ export class LocationdisplayComponent implements OnInit {
   geoLocationSupported: boolean;
   term: any;
 
+  today = new Date();
+  jstoday = '';
+
   constructor(
     private http: HttpClient, 
     private geoLocation: GeolocationService,
     private getLocations: GetlocationsService,
-  ){}
+    private datePipe: DatePipe
+  ){
+    this.jstoday = formatDate(this.today, 'EEEE, MMMM d, y', 'en-US', '+0530');
+  }
+
 
   async ngOnInit(): Promise <string> {
 
@@ -121,6 +134,7 @@ sortFunction(a, b) {
     return (a.distance < b.distance) ? -1 : 1;
   }
 }
+
 
   distance = (lat1, lon1, lat2, lon2, unit) => {
   if ((lat1 == lat2) && (lon1 == lon2)) {

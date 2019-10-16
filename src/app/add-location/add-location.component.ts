@@ -33,6 +33,7 @@ export class AddLocationComponent implements OnInit {
 
       console.log('formData is ' + FormData);
       console.log('formDataJSON is ' + formDataJSON);
+      this.addLocationForm.reset();
 
     // console.log(this.addLocationForm);
     // alert(JSON.stringify(this.addLocationForm.value));
