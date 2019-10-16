@@ -20,7 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { GeolocationService } from './shared/geolocation.service';
 import { GetlocationsService } from './shared/getlocations.service';
 import { TwitterfeedComponent } from './twitterfeed/twitterfeed.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -47,7 +47,8 @@ import { TwitterfeedComponent } from './twitterfeed/twitterfeed.component';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [GetdataService, GeolocationService, GetlocationsService],
   bootstrap: [AppComponent]

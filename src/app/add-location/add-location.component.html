@@ -1,4 +1,4 @@
-<div class='container'>
+<!-- <div class='container'>
     <form>
         <div class="form-group">
             <label for="name" class="control-label">Location Name</label>
@@ -54,6 +54,41 @@
             <button type="submit" class="btn btn-primary">Add Location</button>
         </div>
     </form>
-</div>
+</div> -->
 
+
+<form [formGroup]="addLocationForm" (ngSubmit)="onSubmit()">
+    <label>
+        <input matInput placeholder="Location Name" formControlName="name" required id="name">
+    </label>
+    <label>
+        <input matInput placeholder="Address" formControlName="address" required id="address">
+    </label>
+    <label>
+        <input matInput placeholder="City" formControlName="city" id="city">
+    </label>
+    <label>
+        <input matInput placeholder="State" formControlName="state" id="state">
+    </label>
+    <label>
+        <input matInput placeholder="Zip Code" email formControlName="zip" required id="zip">
+    </label>
+    <label>
+        <input matInput placeholder="Latitude" email formControlName="lat" required id="lat">
+    </label>
+    <label>
+        <input matInput placeholder="Longitude" email formControlName="long" required id="long">
+    </label>
+    <label>
+        <input matInput placeholder="URL" email formControlName="URL" required id="URL">
+    </label>
+    <label>
+        <input matInput placeholder="CSS Flavor Selector" email formControlName="flavorSelector" required id="flavorSelector">
+    </label>
+    <label>
+        <input matInput placeholder="CSS Description Selector" email formControlName="descriptionSelector" required id="descriptionSelector">
+    </label>
+    <br />
+    <button mat-flat-button color="primary">Submit</button>
+</form>
 
