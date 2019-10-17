@@ -9,7 +9,9 @@
 }
 
 #addressDiv {
+    margin-top: 5px;
     font-size: small;
+    line-height: 1.5;
 }
 
 #dateDisplay {
@@ -19,6 +21,14 @@
 #geoDistance {
     font-size: small;
     font-weight: normal;
-    margin-top: 10px;
+    margin-top: 15px;
     padding: 5px 10px 5px 10px;
+}
+
+a:link {
+    color: #006699;
+}
+
+a:visited {
+    color: #006699;
 }

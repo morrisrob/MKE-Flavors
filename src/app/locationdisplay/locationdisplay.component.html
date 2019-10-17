@@ -17,7 +17,7 @@
     
     <ng-container *ngFor="let location of locations | filter:term; let k = index ">
         <div class="card mt-2">
-            <h5 class="card-header"><a href={{location.URL}}>{{location.name}}<span id="geoDistance" *ngIf="geoLocationSupported != false" class="badge badge-pill badge-primary" style="float:right;">{{ location.distance }}<br>Miles</span></a>
+            <h5 class="card-header"><a href={{location.URL}}>{{location.name}}<span id="geoDistance" *ngIf="geoLocationSupported != false" class="badge badge-secondary" style="float:right;">{{ location.distance }}<br>Miles</span></a>
                 <div id="addressDiv">{{location.address}}<br>{{location.city}}</div>
             </h5>
             <ng-container *ngFor="let flavors of location.flavors; let i = index">
