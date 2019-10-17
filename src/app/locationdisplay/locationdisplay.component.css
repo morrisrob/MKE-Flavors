@@ -1,6 +1,7 @@
 #searchBoxDiv{
     padding-left: 0;
     padding-top: 7px;
+    padding-bottom: 7px;
 }
 
 #loadingSpinner {
@@ -15,7 +16,8 @@
 }
 
 #dateDisplay {
-    padding-top: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 
 #geoDistance {
