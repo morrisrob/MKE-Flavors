@@ -1,3 +1,5 @@
+const getFlavors = require("./getflavors");
+
 const path = require('path');
 const Express = require('express');
 const app = Express();
@@ -127,5 +129,7 @@ app.use(Express.static(__dirname + '/dist/MKE-Flavors'));
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/MKE-Flavors/index.html'));
 });
+
+// getFlavors.getFlavorsDB();
 
 

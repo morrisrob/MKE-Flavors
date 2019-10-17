@@ -92,9 +92,5 @@ h5 {
     font-size: 15px;
     line-height: 15px;
     margin: 0 0 0 0;
-}
-
-.nav-link {
-    margin-left: 10px;
-    font-family: 'Roboto', sans-serif;
+    width: 70px;
 }
