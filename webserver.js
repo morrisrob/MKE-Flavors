@@ -1,4 +1,6 @@
 const getFlavors = require("./getflavors");
+const CronJob = require('cron').CronJob;
+
 
 const path = require('path');
 const Express = require('express');
@@ -130,6 +132,23 @@ app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/MKE-Flavors/index.html'));
 });
 
-// getFlavors.getFlavorsDB();
+// const cronJob = new CronJob('0 0 4 * * *', function() {
+//     getFlavors.getFlavorsDB();
+//     console.log('cron job ran');
+// })
+
+// const job = new CronJob({
+//     cronTime: '0 0 4 * * *',
+//     onTick: function () {
+//         console.log('cron job ran');
+//         getFlavors.getFlavorsDB();
+//     },
+//     start: false,
+// });
+
+new CronJob('00 00 04 * * *', function () {
+    getFlavors.getFlavorsDB();
+    console.log('cron job ran')
+}, null, true, 'America/Chicago');
 
 
