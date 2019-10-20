@@ -83,6 +83,7 @@ function getFlavorsDB() {
                                 let flavorSplit = flavor.split(':');
                                 flavor = flavorSplit[1].toString();
                             }
+                            flavor = flavor.trim();
                             const description = $(descriptionSelectorArray[i]).text();
                             console.log(item.name + " flavor is " + flavor);
                             console.log(item.name + " description is " + description)

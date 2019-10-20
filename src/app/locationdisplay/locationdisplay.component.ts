@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
-import { stringify } from '@angular/compiler/src/util';
 import { GeolocationService } from '../shared/geolocation.service';
 import { GetlocationsService } from '../shared/getlocations.service';
 import { DatePipe } from '@angular/common';
 import {formatDate } from '@angular/common';
-
-
-
-// import { start } from 'repl';
 
 @Component({
   selector: 'app-locationdisplay',
@@ -39,11 +33,7 @@ export class LocationdisplayComponent implements OnInit {
   }
 
 
-  async ngOnInit(): Promise <string> {
-
-    // setTimeout(this.sayHi, 1000);
-    
-
+  ngOnInit() {
 
     this.getLocations.getLocations().then(loc => {
       this.locations = loc.loc;
@@ -63,7 +53,6 @@ export class LocationdisplayComponent implements OnInit {
           this.dataLoaded = true;
         });
     })
-    return 'yeah';
   }
  
   timeoutDisplayLocations = () => {
@@ -81,21 +70,21 @@ export class LocationdisplayComponent implements OnInit {
     console.log('getlocationsfromAPI ran');
   }
 
-  async getGeoLocation() {
-    let geoLocationArray;
-    if (navigator) {
-      navigator.geolocation.getCurrentPosition(async pos => {
-        this.lng2 = +pos.coords.longitude;
-        this.lat2 = +pos.coords.latitude;
-        geoLocationArray = [this.lat2, this.lng2];
-        console.log(this.lng2);
-        console.log(this.lat2);
-      });
-    } else {
-      this.geoLocationSupported = false;
-    }
-    console.log('getgeolocation ran');
-  } 
+  // async getGeoLocation() {
+  //   let geoLocationArray;
+  //   if (navigator) {
+  //     navigator.geolocation.getCurrentPosition(async pos => {
+  //       this.lng2 = +pos.coords.longitude;
+  //       this.lat2 = +pos.coords.latitude;
+  //       geoLocationArray = [this.lat2, this.lng2];
+  //       console.log(this.lng2);
+  //       console.log(this.lat2);
+  //     });
+  //   } else {
+  //     this.geoLocationSupported = false;
+  //   }
+  //   console.log('getgeolocation ran');
+  // } 
 
   getLocationDistances = () => {
     console.log('getlocationsdistances ran')

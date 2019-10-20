@@ -97,31 +97,6 @@ app.post("/api/addLocation", (request, response) => {
                 response.send(result[0]);
             }
     });
-
-
-
-    // let newLocation = request.body;
-    // let newLocationJSON = newLocation.json;
-    // let location = new Location( {
-        // name: request.body.name,
-        // address: request.body.address,
-        // city: request.body.city,
-        // state: request.body.state,
-        // zip: request.body.zip,
-        // lat: request.body.lat,
-        // long: request.body.long,
-        // URL: request.body.URL,
-        // flavorSelector: request.body.flavorSelector,
-        // descriptionSelector: request.body.descriptionSelector,
-    //     })
-
-    // collection.insertOne(location, function (err, doc) {
-    //     if (err) {
-    //         handleError(response, err.message, "Failed to create new contact.");
-    //     } else {
-    //         response.status(201).json(doc.ops[0]);
-    //     }
-    // });
 });
 
 // Serve static files
@@ -132,23 +107,7 @@ app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/MKE-Flavors/index.html'));
 });
 
-// const cronJob = new CronJob('0 0 4 * * *', function() {
-//     getFlavors.getFlavorsDB();
-//     console.log('cron job ran');
-// })
-
-// const job = new CronJob({
-//     cronTime: '0 0 4 * * *',
-//     onTick: function () {
-//         console.log('cron job ran');
-//         getFlavors.getFlavorsDB();
-//     },
-//     start: false,
-// });
-
 new CronJob('00 00 04 * * *', function () {
     getFlavors.getFlavorsDB();
     console.log('cron job ran')
 }, null, true, 'America/Chicago');
-
-

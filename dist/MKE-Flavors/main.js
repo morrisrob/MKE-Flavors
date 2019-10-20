@@ -521,7 +521,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".container {\n    padding-right: 5px;\n    padding-left: 5px;\n}\n\n.nav-link {\n    margin-left: 10px;\n    font-family: 'Roboto', sans-serif;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7SUFDbEIsaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksaUJBQWlCO0lBQ2pCLGlDQUFpQztBQUNyQyIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lciB7XG4gICAgcGFkZGluZy1yaWdodDogNXB4O1xuICAgIHBhZGRpbmctbGVmdDogNXB4O1xufVxuXG4ubmF2LWxpbmsge1xuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICAgIGZvbnQtZmFtaWx5OiAnUm9ib3RvJywgc2Fucy1zZXJpZjtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".container {\n    padding-right: 5px;\n    padding-left: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7SUFDbEIsaUJBQWlCO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiA1cHg7XG4gICAgcGFkZGluZy1sZWZ0OiA1cHg7XG59Il19 */");
 
 /***/ }),
 
@@ -904,7 +904,7 @@ LocationFilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#searchBoxDiv{\n    padding-left: 0;\n    padding-top: 7px;\n    padding-bottom: 7px;\n}\n\n#loadingSpinner {\n    margin: auto;\n    padding: 70px 0;\n}\n\n#addressDiv {\n    margin-top: 5px;\n    font-size: small;\n    line-height: 1.5;\n}\n\n#dateDisplay {\n    padding-top: 7px;\n    padding-bottom: 7px;\n    background-color: #669900;\n    color: white;\n    text-align: center;\n}\n\n#geoDistance {\n    font-size: small;\n    font-weight: normal;\n    margin-top: 3px;\n    padding: 5px 10px 5px 10px;\n}\n\na:link {\n    color: #006699;\n}\n\na:visited {\n    color: #006699;\n}\n\n.card-body {\n    padding-top: 10px;\n    padding-bottom: 10px;\n    padding-left: 10px;\n}\n\n.card-header {\n    padding-right: 2px;\n    padding-left: 10px;\n}\n\n.container {\n    padding-right: 5px;\n    padding-left: 5px;\n}\n\nh2 {\n    padding-right: 15px;\n    font-family: 'Alegreya', serif;\n    font-weight: 800;\n    line-height: 20px;\n    font-size: 20px;\n    margin: 0 0 0 0;\n}\n\nh3 {\n    padding-right: 15px;\n    font-family: 'Alegreya', serif;\n    font-weight: 700;\n    line-height: 18px;\n    font-size: 17px;\n    margin: 0 0 0 0;\n}\n\nh4 {\n    font-family: 'Roboto', sans-serif;\n    font-size: 15px;\n    line-height: 20px;\n    margin: 5px 0 0 0;\n}\n\nh5 {\n    font-family: 'Roboto', sans-serif;\n    font-size: 15px;\n    line-height: 20px;\n    margin: 0 0 0 0;\n}\n\n.badge {\n    background-color: #669900;\n    font-family: 'Roboto', sans-serif;\n    font-size: 15px;\n    line-height: 15px;\n    margin: 0 0 0 0;\n    width: 70px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9jYXRpb25kaXNwbGF5L2xvY2F0aW9uZGlzcGxheS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxZQUFZO0lBQ1osZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG1CQUFtQjtJQUNuQix5QkFBeUI7SUFDekIsWUFBWTtJQUNaLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLGdCQUFnQjtJQUNoQixtQkFBbUI7SUFDbkIsZUFBZTtJQUNmLDBCQUEwQjtBQUM5Qjs7QUFFQTtJQUNJLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksaUJBQWlCO0lBQ2pCLG9CQUFvQjtJQUNwQixrQkFBa0I7QUFDdEI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQiw4QkFBOEI7SUFDOUIsZ0JBQWdCO0lBQ2hCLGlCQUFpQjtJQUNqQixlQUFlO0lBQ2YsZUFBZTtBQUNuQjs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQiw4QkFBOEI7SUFDOUIsZ0JBQWdCO0lBQ2hCLGlCQUFpQjtJQUNqQixlQUFlO0lBQ2YsZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGlDQUFpQztJQUNqQyxlQUFlO0lBQ2YsaUJBQWlCO0lBQ2pCLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLGlDQUFpQztJQUNqQyxlQUFlO0lBQ2YsaUJBQWlCO0lBQ2pCLGVBQWU7QUFDbkI7O0FBRUE7SUFDSSx5QkFBeUI7SUFDekIsaUNBQWlDO0lBQ2pDLGVBQWU7SUFDZixpQkFBaUI7SUFDakIsZUFBZTtJQUNmLFdBQVc7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2xvY2F0aW9uZGlzcGxheS9sb2NhdGlvbmRpc3BsYXkuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNzZWFyY2hCb3hEaXZ7XG4gICAgcGFkZGluZy1sZWZ0OiAwO1xuICAgIHBhZGRpbmctdG9wOiA3cHg7XG4gICAgcGFkZGluZy1ib3R0b206IDdweDtcbn1cblxuI2xvYWRpbmdTcGlubmVyIHtcbiAgICBtYXJnaW46IGF1dG87XG4gICAgcGFkZGluZzogNzBweCAwO1xufVxuXG4jYWRkcmVzc0RpdiB7XG4gICAgbWFyZ2luLXRvcDogNXB4O1xuICAgIGZvbnQtc2l6ZTogc21hbGw7XG4gICAgbGluZS1oZWlnaHQ6IDEuNTtcbn1cblxuI2RhdGVEaXNwbGF5IHtcbiAgICBwYWRkaW5nLXRvcDogN3B4O1xuICAgIHBhZGRpbmctYm90dG9tOiA3cHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzY2OTkwMDtcbiAgICBjb2xvcjogd2hpdGU7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4jZ2VvRGlzdGFuY2Uge1xuICAgIGZvbnQtc2l6ZTogc21hbGw7XG4gICAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcbiAgICBtYXJnaW4tdG9wOiAzcHg7XG4gICAgcGFkZGluZzogNXB4IDEwcHggNXB4IDEwcHg7XG59XG5cbmE6bGluayB7XG4gICAgY29sb3I6ICMwMDY2OTk7XG59XG5cbmE6dmlzaXRlZCB7XG4gICAgY29sb3I6ICMwMDY2OTk7XG59XG5cbi5jYXJkLWJvZHkge1xuICAgIHBhZGRpbmctdG9wOiAxMHB4O1xuICAgIHBhZGRpbmctYm90dG9tOiAxMHB4O1xuICAgIHBhZGRpbmctbGVmdDogMTBweDtcbn1cblxuLmNhcmQtaGVhZGVyIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiAycHg7XG4gICAgcGFkZGluZy1sZWZ0OiAxMHB4O1xufVxuXG4uY29udGFpbmVyIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiA1cHg7XG4gICAgcGFkZGluZy1sZWZ0OiA1cHg7XG59XG5cbmgyIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiAxNXB4O1xuICAgIGZvbnQtZmFtaWx5OiAnQWxlZ3JleWEnLCBzZXJpZjtcbiAgICBmb250LXdlaWdodDogODAwO1xuICAgIGxpbmUtaGVpZ2h0OiAyMHB4O1xuICAgIGZvbnQtc2l6ZTogMjBweDtcbiAgICBtYXJnaW46IDAgMCAwIDA7XG59XG5cbmgzIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiAxNXB4O1xuICAgIGZvbnQtZmFtaWx5OiAnQWxlZ3JleWEnLCBzZXJpZjtcbiAgICBmb250LXdlaWdodDogNzAwO1xuICAgIGxpbmUtaGVpZ2h0OiAxOHB4O1xuICAgIGZvbnQtc2l6ZTogMTdweDtcbiAgICBtYXJnaW46IDAgMCAwIDA7XG59XG5cbmg0IHtcbiAgICBmb250LWZhbWlseTogJ1JvYm90bycsIHNhbnMtc2VyaWY7XG4gICAgZm9udC1zaXplOiAxNXB4O1xuICAgIGxpbmUtaGVpZ2h0OiAyMHB4O1xuICAgIG1hcmdpbjogNXB4IDAgMCAwO1xufVxuXG5oNSB7XG4gICAgZm9udC1mYW1pbHk6ICdSb2JvdG8nLCBzYW5zLXNlcmlmO1xuICAgIGZvbnQtc2l6ZTogMTVweDtcbiAgICBsaW5lLWhlaWdodDogMjBweDtcbiAgICBtYXJnaW46IDAgMCAwIDA7XG59XG5cbi5iYWRnZSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzY2OTkwMDtcbiAgICBmb250LWZhbWlseTogJ1JvYm90bycsIHNhbnMtc2VyaWY7XG4gICAgZm9udC1zaXplOiAxNXB4O1xuICAgIGxpbmUtaGVpZ2h0OiAxNXB4O1xuICAgIG1hcmdpbjogMCAwIDAgMDtcbiAgICB3aWR0aDogNzBweDtcbn1cbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("#searchBoxDiv{\n    padding-left: 0;\n    padding-top: 7px;\n    padding-bottom: 7px;\n}\n\n#loadingSpinner {\n    margin: auto;\n    padding: 70px 0;\n}\n\n#addressDiv {\n    margin-top: 5px;\n    font-size: small;\n    line-height: 1.5;\n}\n\n#dateDisplay {\n    padding-top: 7px;\n    padding-bottom: 7px;\n    background-color: #669900;\n    color: white;\n    text-align: center;\n}\n\n#geoDistance {\n    font-size: small;\n    font-weight: normal;\n    margin-top: 3px;\n    padding: 5px 10px 5px 10px;\n}\n\na:link {\n    color: #006699;\n}\n\na:visited {\n    color: #006699;\n}\n\n.card-body {\n    padding-top: 10px;\n    padding-bottom: 10px;\n    padding-left: 10px;\n}\n\n.card-header {\n    padding-right: 2px;\n    padding-left: 10px;\n}\n\n.container {\n    padding-right: 5px;\n    padding-left: 5px;\n}\n\nh2 {\n    padding-right: 15px;\n    font-family: 'Alegreya', serif;\n    font-weight: 800;\n    line-height: 20px;\n    font-size: 20px;\n    margin: 0 0 0 0;\n}\n\nh3 {\n    padding-right: 15px;\n    font-family: 'Alegreya', serif;\n    font-weight: 700;\n    line-height: 18px;\n    font-size: 17px;\n    margin: 0 0 0 0;\n}\n\nh4 {\n    font-family: 'Roboto', sans-serif;\n    font-size: 15px;\n    line-height: 20px;\n    margin: 5px 0 0 0;\n}\n\nh5 {\n    font-family: 'Roboto', sans-serif;\n    font-size: 15px;\n    line-height: 20px;\n    margin: 0 0 0 0;\n}\n\n.badge {\n    background-color: #669900;\n    font-family: 'Roboto', sans-serif;\n    font-size: 15px;\n    line-height: 15px;\n    margin: 0 0 0 0;\n    width: 80px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9jYXRpb25kaXNwbGF5L2xvY2F0aW9uZGlzcGxheS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxZQUFZO0lBQ1osZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG1CQUFtQjtJQUNuQix5QkFBeUI7SUFDekIsWUFBWTtJQUNaLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLGdCQUFnQjtJQUNoQixtQkFBbUI7SUFDbkIsZUFBZTtJQUNmLDBCQUEwQjtBQUM5Qjs7QUFFQTtJQUNJLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksaUJBQWlCO0lBQ2pCLG9CQUFvQjtJQUNwQixrQkFBa0I7QUFDdEI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQiw4QkFBOEI7SUFDOUIsZ0JBQWdCO0lBQ2hCLGlCQUFpQjtJQUNqQixlQUFlO0lBQ2YsZUFBZTtBQUNuQjs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQiw4QkFBOEI7SUFDOUIsZ0JBQWdCO0lBQ2hCLGlCQUFpQjtJQUNqQixlQUFlO0lBQ2YsZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGlDQUFpQztJQUNqQyxlQUFlO0lBQ2YsaUJBQWlCO0lBQ2pCLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLGlDQUFpQztJQUNqQyxlQUFlO0lBQ2YsaUJBQWlCO0lBQ2pCLGVBQWU7QUFDbkI7O0FBRUE7SUFDSSx5QkFBeUI7SUFDekIsaUNBQWlDO0lBQ2pDLGVBQWU7SUFDZixpQkFBaUI7SUFDakIsZUFBZTtJQUNmLFdBQVc7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2xvY2F0aW9uZGlzcGxheS9sb2NhdGlvbmRpc3BsYXkuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNzZWFyY2hCb3hEaXZ7XG4gICAgcGFkZGluZy1sZWZ0OiAwO1xuICAgIHBhZGRpbmctdG9wOiA3cHg7XG4gICAgcGFkZGluZy1ib3R0b206IDdweDtcbn1cblxuI2xvYWRpbmdTcGlubmVyIHtcbiAgICBtYXJnaW46IGF1dG87XG4gICAgcGFkZGluZzogNzBweCAwO1xufVxuXG4jYWRkcmVzc0RpdiB7XG4gICAgbWFyZ2luLXRvcDogNXB4O1xuICAgIGZvbnQtc2l6ZTogc21hbGw7XG4gICAgbGluZS1oZWlnaHQ6IDEuNTtcbn1cblxuI2RhdGVEaXNwbGF5IHtcbiAgICBwYWRkaW5nLXRvcDogN3B4O1xuICAgIHBhZGRpbmctYm90dG9tOiA3cHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzY2OTkwMDtcbiAgICBjb2xvcjogd2hpdGU7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4jZ2VvRGlzdGFuY2Uge1xuICAgIGZvbnQtc2l6ZTogc21hbGw7XG4gICAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcbiAgICBtYXJnaW4tdG9wOiAzcHg7XG4gICAgcGFkZGluZzogNXB4IDEwcHggNXB4IDEwcHg7XG59XG5cbmE6bGluayB7XG4gICAgY29sb3I6ICMwMDY2OTk7XG59XG5cbmE6dmlzaXRlZCB7XG4gICAgY29sb3I6ICMwMDY2OTk7XG59XG5cbi5jYXJkLWJvZHkge1xuICAgIHBhZGRpbmctdG9wOiAxMHB4O1xuICAgIHBhZGRpbmctYm90dG9tOiAxMHB4O1xuICAgIHBhZGRpbmctbGVmdDogMTBweDtcbn1cblxuLmNhcmQtaGVhZGVyIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiAycHg7XG4gICAgcGFkZGluZy1sZWZ0OiAxMHB4O1xufVxuXG4uY29udGFpbmVyIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiA1cHg7XG4gICAgcGFkZGluZy1sZWZ0OiA1cHg7XG59XG5cbmgyIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiAxNXB4O1xuICAgIGZvbnQtZmFtaWx5OiAnQWxlZ3JleWEnLCBzZXJpZjtcbiAgICBmb250LXdlaWdodDogODAwO1xuICAgIGxpbmUtaGVpZ2h0OiAyMHB4O1xuICAgIGZvbnQtc2l6ZTogMjBweDtcbiAgICBtYXJnaW46IDAgMCAwIDA7XG59XG5cbmgzIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiAxNXB4O1xuICAgIGZvbnQtZmFtaWx5OiAnQWxlZ3JleWEnLCBzZXJpZjtcbiAgICBmb250LXdlaWdodDogNzAwO1xuICAgIGxpbmUtaGVpZ2h0OiAxOHB4O1xuICAgIGZvbnQtc2l6ZTogMTdweDtcbiAgICBtYXJnaW46IDAgMCAwIDA7XG59XG5cbmg0IHtcbiAgICBmb250LWZhbWlseTogJ1JvYm90bycsIHNhbnMtc2VyaWY7XG4gICAgZm9udC1zaXplOiAxNXB4O1xuICAgIGxpbmUtaGVpZ2h0OiAyMHB4O1xuICAgIG1hcmdpbjogNXB4IDAgMCAwO1xufVxuXG5oNSB7XG4gICAgZm9udC1mYW1pbHk6ICdSb2JvdG8nLCBzYW5zLXNlcmlmO1xuICAgIGZvbnQtc2l6ZTogMTVweDtcbiAgICBsaW5lLWhlaWdodDogMjBweDtcbiAgICBtYXJnaW46IDAgMCAwIDA7XG59XG5cbi5iYWRnZSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzY2OTkwMDtcbiAgICBmb250LWZhbWlseTogJ1JvYm90bycsIHNhbnMtc2VyaWY7XG4gICAgZm9udC1zaXplOiAxNXB4O1xuICAgIGxpbmUtaGVpZ2h0OiAxNXB4O1xuICAgIG1hcmdpbjogMCAwIDAgMDtcbiAgICB3aWR0aDogODBweDtcbn1cbiJdfQ== */");
 
 /***/ }),
 
@@ -931,7 +931,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { start } from 'repl';
 let LocationdisplayComponent = class LocationdisplayComponent {
     constructor(http, geoLocation, getLocations, datePipe) {
         this.http = http;
@@ -952,6 +951,21 @@ let LocationdisplayComponent = class LocationdisplayComponent {
             });
             console.log('getlocationsfromAPI ran');
         };
+        // async getGeoLocation() {
+        //   let geoLocationArray;
+        //   if (navigator) {
+        //     navigator.geolocation.getCurrentPosition(async pos => {
+        //       this.lng2 = +pos.coords.longitude;
+        //       this.lat2 = +pos.coords.latitude;
+        //       geoLocationArray = [this.lat2, this.lng2];
+        //       console.log(this.lng2);
+        //       console.log(this.lat2);
+        //     });
+        //   } else {
+        //     this.geoLocationSupported = false;
+        //   }
+        //   console.log('getgeolocation ran');
+        // } 
         this.getLocationDistances = () => {
             console.log('getlocationsdistances ran');
             let distanceArray = [];
@@ -1007,44 +1021,22 @@ let LocationdisplayComponent = class LocationdisplayComponent {
         this.jstoday = Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(this.today, 'EEEE, MMMM d, y', 'en-US', '+0530');
     }
     ngOnInit() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            // setTimeout(this.sayHi, 1000);
-            this.getLocations.getLocations().then(loc => {
-                this.locations = loc.loc;
-                console.log(this.locations);
-                this.locations.sort((a, b) => a.name.localeCompare(b.name));
-                this.geoLocation.getPosition()
-                    .then(pos => {
-                    console.log(`Position: ${pos.lng} ${pos.lat}`);
-                    this.lng2 = pos.lng;
-                    this.lat2 = pos.lat;
-                    this.getLocationDistances();
-                })
-                    .catch((err) => {
-                    console.log(err.message);
-                    this.geoLocationSupported = false;
-                    this.dataLoaded = true;
-                });
-            });
-            return 'yeah';
-        });
-    }
-    getGeoLocation() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            let geoLocationArray;
-            if (navigator) {
-                navigator.geolocation.getCurrentPosition((pos) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                    this.lng2 = +pos.coords.longitude;
-                    this.lat2 = +pos.coords.latitude;
-                    geoLocationArray = [this.lat2, this.lng2];
-                    console.log(this.lng2);
-                    console.log(this.lat2);
-                }));
-            }
-            else {
+        this.getLocations.getLocations().then(loc => {
+            this.locations = loc.loc;
+            console.log(this.locations);
+            this.locations.sort((a, b) => a.name.localeCompare(b.name));
+            this.geoLocation.getPosition()
+                .then(pos => {
+                console.log(`Position: ${pos.lng} ${pos.lat}`);
+                this.lng2 = pos.lng;
+                this.lat2 = pos.lat;
+                this.getLocationDistances();
+            })
+                .catch((err) => {
+                console.log(err.message);
                 this.geoLocationSupported = false;
-            }
-            console.log('getgeolocation ran');
+                this.dataLoaded = true;
+            });
         });
     }
     sortFunction(a, b) {
@@ -1298,7 +1290,7 @@ let GeolocationService = class GeolocationService {
                 resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
             }, err => {
                 reject(err);
-            });
+            }, { timeout: 5000 });
         });
     }
     getCurrentPosition() {
@@ -1359,11 +1351,6 @@ GetlocationsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     })
 ], GetlocationsService);
 
-// this.http.get('/api/locations').subscribe(data => {
-//   this.locations = data;
-//   this.locations.sort((a, b) => a.name.localeCompare(b.name));
-// });
-// console.log('getlocationsfromAPI ran');
 
 
 /***/ }),

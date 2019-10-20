@@ -19,10 +19,3 @@ export class GetlocationsService {
   }
   constructor(private http: HttpClient) { }
 }
-
-
-// this.http.get('/api/locations').subscribe(data => {
-//   this.locations = data;
-//   this.locations.sort((a, b) => a.name.localeCompare(b.name));
-// });
-// console.log('getlocationsfromAPI ran');
