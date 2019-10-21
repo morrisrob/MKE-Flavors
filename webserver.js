@@ -1,3 +1,6 @@
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
+
 const getFlavors = require("./getflavors");
 const CronJob = require('cron').CronJob;
 
@@ -111,3 +114,12 @@ new CronJob('00 00 04 * * *', function () {
     getFlavors.getFlavorsDB();
     console.log('cron job ran')
 }, null, true, 'America/Chicago');
+
+app.post('/sms', (req, res) => {
+    const twiml = new MessagingResponse();
+
+    twiml.message('The Robots are coming! Head for the hills!');
+
+    res.writeHead(200, { 'Content-Type': 'text/xml' });
+    res.end(twiml.toString());
+});
