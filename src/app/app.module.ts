@@ -21,6 +21,7 @@ import { GeolocationService } from './shared/geolocation.service';
 import { GetlocationsService } from './shared/getlocations.service';
 import { TwitterfeedComponent } from './twitterfeed/twitterfeed.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     Ng2SearchPipeModule,
+    NgxPaginationModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBR7bGUdRRxG8QHkcR3RNc2fnbNLfSgZ9M'
     }),

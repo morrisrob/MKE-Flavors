@@ -15,7 +15,7 @@
         <input class='form-control' id='searchBox' type="text" [(ngModel)]="term" placeholder="Search">
     </div>
     
-    <ng-container *ngFor="let location of locations | filter:term; let k = index ">
+    <ng-container *ngFor="let location of locations | filter:term | paginate: { itemsPerPage: 10, currentPage: p }; let k = index ">
         <div class="card mt-2">
             <div class="card-header"><h2><a href={{location.URL}}>{{location.name}}</a><span id="geoDistance" *ngIf="geoLocationSupported != false" class="badge badge-secondary" style="float:right;">{{ location.distance }} Mile<span *ngIf="location.distance != 1">s</span></span></h2>
                 <div id="addressDiv"><h5>{{location.address}}<br>{{location.city}}</h5></div>
@@ -32,6 +32,9 @@
             </ng-container>
         </div>
     </ng-container>
+    <div id="paginationControls">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
 </div>
 <app-footer></app-footer>
 </div>

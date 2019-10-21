@@ -5,4 +5,16 @@
 
 .navbar {
     padding-left: 5px;
+    padding-right: 10px;
+}
+
+h5 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    margin: 0 0 0 0;
+}
+
+#slogan {
+    margin-left: 10px;
 }
