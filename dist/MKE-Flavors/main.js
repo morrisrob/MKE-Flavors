@@ -942,6 +942,7 @@ let LocationdisplayComponent = class LocationdisplayComponent {
         this.datePipe = datePipe;
         this.today = new Date();
         this.jstoday = '';
+        this.p = 1;
         this.timeoutDisplayLocations = () => {
             this.geoLocationSupported = false;
             this.dataLoaded = true;

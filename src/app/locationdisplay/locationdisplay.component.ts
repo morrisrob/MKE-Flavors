@@ -23,6 +23,8 @@ export class LocationdisplayComponent implements OnInit {
   today = new Date();
   jstoday = '';
 
+  p: number = 1;
+
   constructor(
     private http: HttpClient, 
     private geoLocation: GeolocationService,
