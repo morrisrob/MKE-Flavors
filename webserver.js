@@ -1,5 +1,6 @@
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
+const findByName = require("./smsFinder");
 
 const getFlavors = require("./getflavors");
 const CronJob = require('cron').CronJob;
@@ -116,10 +117,25 @@ new CronJob('00 00 04 * * *', function () {
 }, null, true, 'America/Chicago');
 
 app.post('/sms', (req, res) => {
+    const body = req.body.Body;
+    res.type('text/sml');
+
+
+    findByName.findByName()
+
     const twiml = new MessagingResponse();
 
-    twiml.message('The Robots are coming! Head for the hills!');
+    twiml.message(`hey hey hey, you said ${body}`);
 
     res.writeHead(200, { 'Content-Type': 'text/xml' });
     res.end(twiml.toString());
+
+
+    var singleEmployee = function (location) {
+        var resp = new MessagingResponse();
+        var message = resp.message();
+        message.body(`${location.name}\n${location.flavors}`);
+        return resp;
+    };
+
 });

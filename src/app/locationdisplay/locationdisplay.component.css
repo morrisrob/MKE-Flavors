@@ -98,3 +98,8 @@ h5 {
 #paginationControls {
     margin-top: 25px;
 }
+
+.ngx-pagination {
+    padding-left: 20px;
+    padding-right: auto;
+}
