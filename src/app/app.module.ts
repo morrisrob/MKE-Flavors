@@ -22,6 +22,7 @@ import { GetlocationsService } from './shared/getlocations.service';
 import { TwitterfeedComponent } from './twitterfeed/twitterfeed.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ContactformComponent } from './contactform/contactform.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MapComponent,
     AddLocationComponent,
     FooterComponent,
-    TwitterfeedComponent
+    TwitterfeedComponent,
+    ContactformComponent
   ],
   imports: [
     Ng2SearchPipeModule,

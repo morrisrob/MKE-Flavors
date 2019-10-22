@@ -16,8 +16,8 @@ export class MapComponent implements OnInit {
   lat = 43.0389;
   lng = -87.90647;
 
-  lng2:any;
-  lat2:any;
+  lng2: 43.0389;
+  lat2: -87.90647;
 
   constructor(
     private http: HttpClient,

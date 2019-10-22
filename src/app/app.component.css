@@ -2,3 +2,7 @@
     padding-right: 5px;
     padding-left: 5px;
 }
+
+ul {
+    padding-inline-start: 0px;
+}

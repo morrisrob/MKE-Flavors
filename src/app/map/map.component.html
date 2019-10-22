@@ -1,5 +1,4 @@
 <div class='container'>
-<h1>{{ title }}</h1>
 <agm-map [zoom]="12" [latitude]="lat2" [longitude]="lng2">
 <ng-container *ngFor="let location of locations">
     <agm-marker [latitude]="location.lat" [longitude]="location.long" [label]="{color: 'blue', fontWeight: 'bold', fontSize: '12px', backgroundColor:'red',  text: location.name}">>

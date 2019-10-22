@@ -12,9 +12,16 @@ h5 {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     line-height: 14px;
+    font-weight: 400;
     margin: 0 0 0 0;
 }
 
 #slogan {
     margin-left: 10px;
 }
+
+/* #navbarText {
+    float: right;
+    margin-left:auto; 
+    margin-right:0;
+} */

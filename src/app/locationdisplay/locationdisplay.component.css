@@ -1,3 +1,12 @@
+menu,
+ol,
+ul {
+    padding: 0;
+}
+dd {
+    margin: 0;
+}
+
 #searchBoxDiv{
     padding-left: 0;
     padding-top: 7px;
@@ -97,9 +106,17 @@ h5 {
 
 #paginationControls {
     margin-top: 25px;
+    margin-left: -60px;
+    display: flex;
+    justify-content: center;
 }
 
 .ngx-pagination {
-    padding-left: 20px;
-    padding-right: auto;
+    margin-left: -40px;
 }
+
+ul {
+    margin-left: -40px;
+    padding-inline-start: 0px;
+}
+
