@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- Footer -->\n<footer id=\"footer\" class=\"page-footer font-small blue\">\n\n    <!-- Copyright -->\n    <div class=\"footer-copyright text-center py-3\">© 2019 Copyright:\n        <a href=\"http://www.mkeflavors.com\"> MKE Flavors</a>\n    </div>\n    <!-- Copyright -->\n\n</footer>\n<!-- Footer -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- Footer -->\n<footer id=\"footer\" class=\"page-footer font-small blue\">\n\n    <!-- Copyright -->\n    <div class=\"footer-copyright text-center py-3\">© 2019 Copyright:\n        <a href=\"http://www.mkeflavors.com\"> MKE Flavors</a>\n    </div>\n    <!-- Copyright -->\n    <div id=\"disclaimer\" class=\"text-center\">\n        This web site is not endorsed by, directly affiliated with, maintained, authorized, or sponsored by any of the restaurants included in this directory. All\n        product and company names are the registered trademarks of their original owners. The use of any trade name or trademark\n        is for identification and reference purposes only and does not imply any association with the trademark holder of their\n        product brand.\n    </div>\n\n</footer>\n<!-- Footer -->\n");
 
 /***/ }),
 
@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class='container'>\n<agm-map [zoom]=\"12\" [latitude]=\"lat2\" [longitude]=\"lng2\">\n<ng-container *ngFor=\"let location of locations\">\n    <agm-marker [latitude]=\"location.lat\" [longitude]=\"location.long\" [label]=\"{color: 'blue', fontWeight: 'bold', fontSize: '12px', backgroundColor:'red',  text: location.name}\">>\n        <agm-info-window><h5><a href={{location.URL}}>{{location.name}}</a></h5><p>{{location.flavors}}</p></agm-info-window>\n    </agm-marker>\n</ng-container>\n</agm-map>\n<app-footer></app-footer>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class='container'>\n<div id=\"map\">\n<agm-map [zoom]=\"12\" [latitude]=\"lat2\" [longitude]=\"lng2\">\n<ng-container *ngFor=\"let location of locations\">\n    <agm-marker [latitude]=\"location.lat\" [longitude]=\"location.long\" [label]=\"{color: 'blue', fontWeight: 'bold', fontSize: '12px', backgroundColor:'red',  text: location.name}\">>\n        <agm-info-window><h5><a href={{location.URL}}>{{location.name}}</a></h5><p>{{location.flavors}}</p></agm-info-window>\n    </agm-marker>\n</ng-container>\n</agm-map>\n</div>\n<app-footer></app-footer>\n</div>\n");
 
 /***/ }),
 
@@ -149,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <!-- <a class=\"navbar-brand\" href=\"#\">MKE Flavors</a> -->\n    <a class=\"navbar-brand\" href=\"#\">\n        <img src=\"assets/mkeflavors4.png\" width=\"240\" class=\"d-inline-block align-top\"\n            alt=\"MKE Flavors\">\n            <span><h5 id=\"slogan\">Daily list of Milwaukee area frozen custard flavors.</h5></span>\n    </a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\"\n        aria-controls=\"navbarText\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarText\">\n        <ul class=\"navbar-nav ml-auto\">\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"\">List View</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"map\">Map View</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"contact\">Contact Us</a>\n            </li>\n        </ul>\n    </div>\n</nav>\n\n<!-- <nav class=\"navbar navbar-light\" style=\"background-color: #0D496B;\">\n    <a class=\"navbar-brand\" href=\"#\">\n        <img src=\"assets/MKEFlavors3.png\" width=\"120\" height=\"120\" alt=\"\">\n    </a>\n</nav> -->");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <!-- <a class=\"navbar-brand\" href=\"#\">MKE Flavors</a> -->\n    <a class=\"navbar-brand\" href=\"#\">\n        <img src=\"assets/mkeflavors4.png\" width=\"240\" class=\"d-inline-block align-top\"\n            alt=\"MKE Flavors\">\n    </a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarText\"\n        aria-controls=\"navbarText\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarText\">\n        <ul class=\"navbar-nav ml-auto\">\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"\">List View</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"map\">Map View</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" href=\"contact\">Contact Us</a>\n            </li>\n        </ul>\n    </div>\n</nav>\n\n<!-- <nav class=\"navbar navbar-light\" style=\"background-color: #0D496B;\">\n    <a class=\"navbar-brand\" href=\"#\">\n        <img src=\"assets/MKEFlavors3.png\" width=\"120\" height=\"120\" alt=\"\">\n    </a>\n</nav> -->");
 
 /***/ }),
 
@@ -863,7 +863,7 @@ ContactformComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#footer {\n    padding: 30px 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZUFBZTtBQUNuQiIsImZpbGUiOiJzcmMvYXBwL2Zvb3Rlci9mb290ZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNmb290ZXIge1xuICAgIHBhZGRpbmc6IDMwcHggMDtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("#footer {\n    padding: 30px 0;\n}\n\n#disclaimer {\n    font-family: 'Roboto', sans-serif;\n    font-size: 10px;\n    line-height: 10px;\n    font-weight: lighter;\n}\n\n.footer-copyright {\n    font-family: 'Roboto', sans-serif;\n    font-size: 12px;\n    line-height: 12px;\n    font-weight: normal;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGlDQUFpQztJQUNqQyxlQUFlO0lBQ2YsaUJBQWlCO0lBQ2pCLG9CQUFvQjtBQUN4Qjs7QUFFQTtJQUNJLGlDQUFpQztJQUNqQyxlQUFlO0lBQ2YsaUJBQWlCO0lBQ2pCLG1CQUFtQjtBQUN2QiIsImZpbGUiOiJzcmMvYXBwL2Zvb3Rlci9mb290ZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiNmb290ZXIge1xuICAgIHBhZGRpbmc6IDMwcHggMDtcbn1cblxuI2Rpc2NsYWltZXIge1xuICAgIGZvbnQtZmFtaWx5OiAnUm9ib3RvJywgc2Fucy1zZXJpZjtcbiAgICBmb250LXNpemU6IDEwcHg7XG4gICAgbGluZS1oZWlnaHQ6IDEwcHg7XG4gICAgZm9udC13ZWlnaHQ6IGxpZ2h0ZXI7XG59XG5cbi5mb290ZXItY29weXJpZ2h0IHtcbiAgICBmb250LWZhbWlseTogJ1JvYm90bycsIHNhbnMtc2VyaWY7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIGxpbmUtaGVpZ2h0OiAxMnB4O1xuICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7XG59Il19 */");
 
 /***/ }),
 
@@ -1187,7 +1187,7 @@ LocationsearchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("agm-map {\n  height: 400px;\n}\n\nh5 {\n  font-weight: 400;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFwL21hcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCIiwiZmlsZSI6InNyYy9hcHAvbWFwL21hcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYWdtLW1hcCB7XG4gIGhlaWdodDogNDAwcHg7XG59XG5cbmg1IHtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("agm-map {\n  height: 400px;\n}\n\nh5 {\n  font-weight: 400;\n}\n\n#map {\n  margin-top: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFwL21hcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCIiwiZmlsZSI6InNyYy9hcHAvbWFwL21hcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYWdtLW1hcCB7XG4gIGhlaWdodDogNDAwcHg7XG59XG5cbmg1IHtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbn1cblxuI21hcCB7XG4gIG1hcmdpbi10b3A6IDIwcHg7XG59Il19 */");
 
 /***/ }),
 

@@ -5,3 +5,7 @@ agm-map {
 h5 {
   font-weight: 400;
 }
+
+#map {
+  margin-top: 20px;
+}
