@@ -7,8 +7,8 @@ const Express = require('express');
 const app = Express();
 const BodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
-// const CONNECTION_URL = process.env.MONGODB_URI;
-const CONNECTION_URL = "***REMOVED***";
+const CONNECTION_URL = process.env.MONGODB_URI;
+// const CONNECTION_URL = "***REMOVED***";
 const DATABASE_NAME = "mkeflavors";
 
 app.use(BodyParser.json());
