@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { GeolocationService } from '../shared/geolocation.service';
-import { GetlocationsService } from '../shared/getlocations.service';
+import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { GeolocationService } from "../shared/geolocation.service";
+import { GetlocationsService } from "../shared/getlocations.service";
 
 @Component({
-  selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  selector: "app-map",
+  templateUrl: "./map.component.html",
+  styleUrls: ["./map.component.css"]
 })
 export class MapComponent implements OnInit {
-
   locations;
 
-  title = 'Flavor Map';
+  title = "Flavor Map";
   lat = 43.0389;
   lng = -87.90647;
 
@@ -22,8 +21,8 @@ export class MapComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private geoLocation: GeolocationService,
-    private getLocations: GetlocationsService,
-    ) { 
+    private getLocations: GetlocationsService
+  ) {
     // if (navigator) {
     //   navigator.geolocation.getCurrentPosition(pos => {
     //     this.lng2 = +pos.coords.longitude;
@@ -35,8 +34,6 @@ export class MapComponent implements OnInit {
     //   this.lng2 = pos.lng;
     //   this.lat2 = pos.lat;
     // })
-
-
   }
 
   ngOnInit(): void {
@@ -46,17 +43,15 @@ export class MapComponent implements OnInit {
     //   console.log(this.locations);
     // });
 
-    
     this.geoLocation.getPosition().then(pos => {
       console.log(`Position: ${pos.lng} ${pos.lat}`);
       this.lng2 = pos.lng;
       this.lat2 = pos.lat;
-    })
- 
+    });
+
     this.getLocations.getLocations().then(loc => {
       this.locations = loc.loc;
       console.log(this.locations);
-    })
+    });
   }
 }
-
