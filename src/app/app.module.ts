@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TestComponentComponent } from './test-component/test-component.component';
 import { GetdataService } from './getdata.service';
 import { LocationdisplayComponent } from './locationdisplay/locationdisplay.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -27,7 +26,6 @@ import { ContactformComponent } from './contactform/contactform.component';
   declarations: [
     AppComponent,
     LocationFilterPipe,
-    TestComponentComponent,
     LocationdisplayComponent,
     NavbarComponent,
     LocationsearchComponent,
