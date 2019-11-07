@@ -1,26 +1,64 @@
 <div class="container">
-<div class='contactText'><h4>Let us know if you have questions, comments, or a location that you'd like to have added!<p></p><p>If you own or manage a frozen custard shop in the Milwaukee area and you don't post your flavor of the day online, but would like to be included here, please reach out as we can provide a free and easy way to add your daily flavor here.</p></h4></div>
-<form ngNoForm action="https://mailthis.to/mkeflavors@gmail.com" method="POST" encType="multipart/form-data">
+  <div class="contactText">
+    <h4>
+      Let us know if you have questions, comments, or a location that you'd like
+      to have added!
+      <p></p>
+      <p>
+        If you own or manage a frozen custard shop in the Milwaukee area and you
+        don't post your flavor of the day online, but would like to be included
+        here, please reach out as we can provide a free and easy way to add your
+        daily flavor here.
+      </p>
+    </h4>
+  </div>
+  <form
+    ngNoForm
+    action="https://mailthis.to/mkeflavors@gmail.com"
+    method="POST"
+    encType="multipart/form-data"
+  >
     <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="name" class="form-control" id="inputName" aria-describedby="nameHelp"
-            placeholder="Enter Name">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        id="inputName"
+        aria-describedby="nameHelp"
+        placeholder="Enter Name"
+      />
     </div>
     <div class="form-group">
-        <label for="_replyto">Email address</label>
-        <input type="email" name="_replyto" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-            placeholder="Enter Email">
+      <label for="_replyto">Email address</label>
+      <input
+        type="email"
+        name="_replyto"
+        class="form-control"
+        id="inputEmail"
+        aria-describedby="emailHelp"
+        placeholder="Enter Email"
+      />
     </div>
     <div class="form-group">
-        <label for="message">Message</label>
-        <textarea name="message" class="form-control" id="inputMessage" rows="3"></textarea>
+      <label for="message">Message</label>
+      <textarea
+        name="message"
+        class="form-control"
+        id="inputMessage"
+        rows="3"
+        placeholder="Enter Message"
+      ></textarea>
     </div>
-    <input type="hidden" name="_confirmation" value="Thank you.  We'll be in touch!">
-    <input type="hidden" name="_subject" value="Contact form submitted">
-    <input type="hidden" name="_after" value="https://mkeflavors.com">
-    <input type="submit" value="Send" class="btn btn-primary"Submit>
-</form>
+    <input
+      type="hidden"
+      name="_confirmation"
+      value="Thank you.  We'll be in touch!"
+    />
+    <input type="hidden" name="_subject" value="Contact form submitted" />
+    <input type="hidden" name="_after" value="https://mkeflavors.com" />
+    <input type="submit" value="Send" class="btn btn-primary" Submit />
+  </form>
 
-<app-footer></app-footer>
+  <app-footer></app-footer>
 </div>
-

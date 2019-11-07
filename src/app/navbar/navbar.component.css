@@ -1,27 +1,21 @@
 .nav-link {
-    margin-left: 10px;
-    font-family: 'Roboto', sans-serif;
+  margin-left: 10px;
+  font-family: "Roboto", sans-serif;
 }
 
 .navbar {
-    padding-left: 0px;
-    padding-right: 10px;
+  padding-left: 0px;
+  padding-right: 10px;
 }
 
 h5 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    line-height: 14px;
-    font-weight: 400;
-    margin: 0 0 0 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 400;
+  margin: 0 0 0 0;
 }
 
 #slogan {
-    margin-left: 10px;
+  margin-left: 10px;
 }
-
-/* #navbarText {
-    float: right;
-    margin-left:auto; 
-    margin-right:0;
-} */

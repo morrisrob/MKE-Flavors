@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponentComponent } from './test-component/test-component.component';
 import { GetdataService } from './getdata.service';
-import { Comp1Component } from './comp1/comp1.component';
-import { Comp2Component } from './comp2/comp2.component';
 import { LocationdisplayComponent } from './locationdisplay/locationdisplay.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LocationsearchComponent } from './locationsearch/locationsearch.component';
@@ -30,8 +28,6 @@ import { ContactformComponent } from './contactform/contactform.component';
     AppComponent,
     LocationFilterPipe,
     TestComponentComponent,
-    Comp1Component,
-    Comp2Component,
     LocationdisplayComponent,
     NavbarComponent,
     LocationsearchComponent,
