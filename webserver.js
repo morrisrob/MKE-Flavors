@@ -129,24 +129,3 @@ new CronJob(
   true,
   "America/Chicago"
 );
-
-app.post("/sms", (req, res) => {
-  const body = req.body.Body;
-  res.type("text/sml");
-
-  findByName.findByName();
-
-  const twiml = new MessagingResponse();
-
-  twiml.message(`hey hey hey, you said ${body}`);
-
-  res.writeHead(200, { "Content-Type": "text/xml" });
-  res.end(twiml.toString());
-
-  var singleEmployee = function(location) {
-    var resp = new MessagingResponse();
-    var message = resp.message();
-    message.body(`${location.name}\n${location.flavors}`);
-    return resp;
-  };
-});
