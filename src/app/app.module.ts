@@ -20,6 +20,7 @@ import { TwitterfeedComponent } from './twitterfeed/twitterfeed.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ContactformComponent } from './contactform/contactform.component';
+import { ManualAddFlavorsComponent } from './manual-add-flavors/manual-add-flavors.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ContactformComponent } from './contactform/contactform.component';
     AddLocationComponent,
     FooterComponent,
     TwitterfeedComponent,
-    ContactformComponent
+    ContactformComponent,
+    ManualAddFlavorsComponent
   ],
   imports: [
     Ng2SearchPipeModule,

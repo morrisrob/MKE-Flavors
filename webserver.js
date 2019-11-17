@@ -5,6 +5,7 @@ const Express = require("express");
 const app = Express();
 const BodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = process.env.MONGODB_URI;
 const DATABASE_NAME = "mkeflavors";
 
@@ -71,18 +72,22 @@ app.get("/api/locations", (request, response) => {
   });
 });
 
-app.get("/api/locations/:id"),
-  (request, response) => {
-    collection.findById(request.params.id).then(location => {
-      if (!location) {
-        return res.status(404).send(error);
-      }
-      response.send(location);
-    });
-  };
+app.get("/api/location/:id", (request, response) => {
+  console.log(request.params.id);
+  collection.findOne({ _id: ObjectId(request.params.id) }, function(
+    error,
+    result
+  ) {
+    console.log(result);
+    if (error) {
+      return response.status(500).send(error);
+    }
+    response.send(result);
+  });
+});
 
 app.post("/api/addLocation", (request, response) => {
-  var location2 = request.body;
+  let location2 = request.body;
   collection.insert(
     [
       {
