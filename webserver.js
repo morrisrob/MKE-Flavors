@@ -1,5 +1,3 @@
-const MessagingResponse = require("twilio").twiml.MessagingResponse;
-const findByName = require("./smsFinder");
 const getFlavors = require("./getflavors");
 const CronJob = require("cron").CronJob;
 const path = require("path");
