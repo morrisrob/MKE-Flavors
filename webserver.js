@@ -16,33 +16,33 @@ app.use(BodyParser.urlencoded({ extended: false }));
 let database;
 let collection;
 
-function Location(
-  name,
-  address,
-  city,
-  state,
-  zip,
-  lat,
-  long,
-  URL,
-  flavorSelector,
-  descriptionSelector,
-  flavors,
-  descriptions
-) {
-  (this.name = name),
-    (this.address = address),
-    (this.city = city),
-    (this.state = state),
-    (this.zip = zip),
-    (this.lat = lat),
-    (this.long = long),
-    (this.URL = URL);
-  this.flavorSelector = flavorSelector;
-  this.descriptionSelector = descriptionSelector;
-  this.flavors = flavors;
-  this.descriptions = descriptions;
-}
+// function Location(
+//   name,
+//   address,
+//   city,
+//   state,
+//   zip,
+//   lat,
+//   long,
+//   URL,
+//   flavorSelector,
+//   descriptionSelector,
+//   flavors,
+//   descriptions
+// ) {
+//   (this.name = name),
+//     (this.address = address),
+//     (this.city = city),
+//     (this.state = state),
+//     (this.zip = zip),
+//     (this.lat = lat),
+//     (this.long = long),
+//     (this.URL = URL);
+//   this.flavorSelector = flavorSelector;
+//   this.descriptionSelector = descriptionSelector;
+//   this.flavors = flavors;
+//   this.descriptions = descriptions;
+// }
 
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, function(
   err,
