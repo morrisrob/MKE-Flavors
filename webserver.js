@@ -114,6 +114,17 @@ app.post("/api/addLocation", (request, response) => {
   );
 });
 
+app.post("/api/location/:id/add-flavor", (request, response) => {
+  let update = { "$set": { } };
+  update.$set[flavorCal[request.body.date]] = request.body.flavor;
+
+  collection.findOneAndUpdate(
+    { _id: ObjectId(request.params.id) },
+    update
+  );
+
+});
+
 // Serve static files
 app.use(Express.static(__dirname + "/dist/MKE-Flavors"));
 
