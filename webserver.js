@@ -8,12 +8,31 @@ const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = process.env.MONGODB_URI;
 const DATABASE_NAME = "mkeflavors";
+const jwt = require("express-jwt");
+const jwksRsa = require("jwks-rsa");
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: false }));
 
 let database;
 let collection;
+
+const checkJwt = jwt({
+  // Dynamically provide a signing key
+  // based on the kid in the header and
+  // the signing keys provided by the JWKS endpoint.
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://dev-zrnic0qj.auth0.com/.well-known/jwks.json`
+  }),
+
+  // Validate the audience and the issuer.
+  audience: "https://mkeflavors.com/api",
+  issuer: `https://dev-zrnic0qj.auth0.com/`,
+  algorithms: ["RS256"]
+});
 
 // function Location(
 //   name,
@@ -72,7 +91,7 @@ app.get("/api/locations", (request, response) => {
   });
 });
 
-app.get("/api/location/:id", (request, response) => {
+app.get("/api/location/:id", checkJwt, (request, response) => {
   console.log(request.params.id);
   collection.findOne({ _id: ObjectId(request.params.id) }, function(
     error,
@@ -86,7 +105,7 @@ app.get("/api/location/:id", (request, response) => {
   });
 });
 
-app.post("/api/addLocation", (request, response) => {
+app.post("/api/addLocation", checkJwt, (request, response) => {
   let location2 = request.body;
   collection.insert(
     [
@@ -114,7 +133,7 @@ app.post("/api/addLocation", (request, response) => {
   );
 });
 
-app.post("/api/add-flavor", (request, response) => {
+app.post("/api/add-flavor", checkJwt, (request, response) => {
   let update = { $set: {} };
   update.$set = { flavorCal: { [request.body.date]: request.body.flavor } };
   console.log(update);
@@ -130,21 +149,6 @@ app.post("/api/add-flavor", (request, response) => {
     }
   );
 });
-
-// app.post("/api/location/:id/add-flavor", (request, response) => {
-//   let update = { $set: {} };
-//   update.$set = { flavorCal: { [request.body.date]: request.body.flavor } };
-//   collection.findOneAndUpdate(
-//     { _id: ObjectId(request.params.id) }, update,
-//     function(err, result) {
-//       if (err) {
-//         response.send({ error: "An error has occurred" });
-//       } else {
-//         response.send(result);
-//       }
-//     }
-//   );
-// });
 
 // Serve static files
 app.use(Express.static(__dirname + "/dist/MKE-Flavors"));
