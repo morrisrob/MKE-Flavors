@@ -1,1 +1,25 @@
-<p>manual-add-flavors works!</p>
+<form [formGroup]="addFlavorForm" (ngSubmit)="onSubmit()">
+  <label>
+    <input
+      matInput
+      placeholder="Location ID"
+      formControlName="locationId"
+      required
+      id="locationId"
+    />
+  </label>
+  <label>
+    <input
+      matInput
+      placeholder="Date"
+      formControlName="date"
+      required
+      id="date"
+    />
+  </label>
+  <label>
+    <input matInput placeholder="Flavor" formControlName="flavor" id="flavor" />
+  </label>
+  <br />
+  <button mat-flat-button color="primary">Submit</button>
+</form>

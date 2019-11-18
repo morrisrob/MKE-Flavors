@@ -114,11 +114,13 @@ app.post("/api/addLocation", (request, response) => {
   );
 });
 
-app.post("/api/location/:id/add-flavor", (request, response) => {
+app.post("/api/add-flavor", (request, response) => {
   let update = { $set: {} };
   update.$set = { flavorCal: { [request.body.date]: request.body.flavor } };
+  console.log(update);
   collection.findOneAndUpdate(
-    { _id: ObjectId(request.params.id) }, update,
+    { _id: ObjectId(request.body.locationId) },
+    update,
     function(err, result) {
       if (err) {
         response.send({ error: "An error has occurred" });
@@ -128,6 +130,21 @@ app.post("/api/location/:id/add-flavor", (request, response) => {
     }
   );
 });
+
+// app.post("/api/location/:id/add-flavor", (request, response) => {
+//   let update = { $set: {} };
+//   update.$set = { flavorCal: { [request.body.date]: request.body.flavor } };
+//   collection.findOneAndUpdate(
+//     { _id: ObjectId(request.params.id) }, update,
+//     function(err, result) {
+//       if (err) {
+//         response.send({ error: "An error has occurred" });
+//       } else {
+//         response.send(result);
+//       }
+//     }
+//   );
+// });
 
 // Serve static files
 app.use(Express.static(__dirname + "/dist/MKE-Flavors"));

@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>manual-add-flavors works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<form [formGroup]=\"addFlavorForm\" (ngSubmit)=\"onSubmit()\">\n  <label>\n    <input\n      matInput\n      placeholder=\"Location ID\"\n      formControlName=\"locationId\"\n      required\n      id=\"locationId\"\n    />\n  </label>\n  <label>\n    <input\n      matInput\n      placeholder=\"Date\"\n      formControlName=\"date\"\n      required\n      id=\"date\"\n    />\n  </label>\n  <label>\n    <input matInput placeholder=\"Flavor\" formControlName=\"flavor\" id=\"flavor\" />\n  </label>\n  <br />\n  <button mat-flat-button color=\"primary\">Submit</button>\n</form>\n");
 
 /***/ }),
 
@@ -1042,16 +1042,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManualAddFlavorsComponent", function() { return ManualAddFlavorsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
 
 
 let ManualAddFlavorsComponent = class ManualAddFlavorsComponent {
-    constructor() { }
-    ngOnInit() {
+    constructor(http) {
+        this.http = http;
+        this.title = "Add Flavor";
+        this.addFlavorForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            locationId: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]("", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            date: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]("", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            flavor: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]("", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])
+        });
+        this.SERVER_URL = "/api/";
     }
+    onSubmit() {
+        let formData = this.addFlavorForm.value;
+        let formDataJSON = JSON.stringify(formData);
+        this.http.post('/api/add-flavor', formData).subscribe();
+        console.log("formData is " + FormData);
+        console.log("formDataJSON is " + formDataJSON);
+        this.addFlavorForm.reset();
+    }
+    ngOnInit() { }
 };
+ManualAddFlavorsComponent.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+];
 ManualAddFlavorsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-manual-add-flavors',
+        selector: "app-manual-add-flavors",
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./manual-add-flavors.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/manual-add-flavors/manual-add-flavors.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./manual-add-flavors.component.css */ "./src/app/manual-add-flavors/manual-add-flavors.component.css")).default]
     })
