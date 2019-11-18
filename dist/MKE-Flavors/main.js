@@ -843,77 +843,55 @@ let LocationdisplayComponent = class LocationdisplayComponent {
         this.getLocations = getLocations;
         this.datePipe = datePipe;
         this.today = new Date();
-        this.jstoday = '';
+        this.jstoday = "";
         this.p = 1;
         this.timeoutDisplayLocations = () => {
             this.geoLocationSupported = false;
             this.dataLoaded = true;
-            console.log('timeout ran');
         };
         this.getLocationsFromAPI = () => {
-            this.http.get('/api/locations').subscribe(data => {
+            this.http.get("/api/locations").subscribe(data => {
                 this.locations = data;
                 this.locations.sort((a, b) => a.name.localeCompare(b.name));
             });
-            console.log('getlocationsfromAPI ran');
         };
-        // async getGeoLocation() {
-        //   let geoLocationArray;
-        //   if (navigator) {
-        //     navigator.geolocation.getCurrentPosition(async pos => {
-        //       this.lng2 = +pos.coords.longitude;
-        //       this.lat2 = +pos.coords.latitude;
-        //       geoLocationArray = [this.lat2, this.lng2];
-        //       console.log(this.lng2);
-        //       console.log(this.lat2);
-        //     });
-        //   } else {
-        //     this.geoLocationSupported = false;
-        //   }
-        //   console.log('getgeolocation ran');
-        // } 
         this.getLocationDistances = () => {
-            console.log('getlocationsdistances ran');
             let distanceArray = [];
             for (let i = 0; i < this.locations.length; i++) {
                 let locLat = this.locations[i].lat;
                 let locLong = this.locations[i].long;
-                let distance = this.distance(this.lat2, this.lng2, locLat, locLong, 'M');
+                let distance = this.distance(this.lat2, this.lng2, locLat, locLong, "M");
                 let distanceRounded = Math.round(distance * 10) / 10;
                 distanceArray.push(distanceRounded);
-                console.log(distanceArray);
-                console.log('distance to ' + this.locations[i].name + ' is ' + distance);
             }
             this.distances = distanceArray;
             this.addDistanceToArray();
-            // this.locations.sort(this.sortFunction)  
             this.locations.sort(function (a, b) {
                 return a.distance - b.distance;
             });
             this.dataLoaded = true;
-            console.log(this.locations);
         };
         this.addDistanceToArray = () => {
             for (let i = 0; i < this.locations.length; i++) {
                 this.locations[i].distance = this.distances[i];
-                console.log(this.locations[i]);
             }
         };
         this.distance = (lat1, lon1, lat2, lon2, unit) => {
-            if ((lat1 == lat2) && (lon1 == lon2)) {
+            if (lat1 == lat2 && lon1 == lon2) {
                 return 0;
             }
             else {
-                var radlat1 = Math.PI * lat1 / 180;
-                var radlat2 = Math.PI * lat2 / 180;
+                var radlat1 = (Math.PI * lat1) / 180;
+                var radlat2 = (Math.PI * lat2) / 180;
                 var theta = lon1 - lon2;
-                var radtheta = Math.PI * theta / 180;
-                var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                var radtheta = (Math.PI * theta) / 180;
+                var dist = Math.sin(radlat1) * Math.sin(radlat2) +
+                    Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
                 if (dist > 1) {
                     dist = 1;
                 }
                 dist = Math.acos(dist);
-                dist = dist * 180 / Math.PI;
+                dist = (dist * 180) / Math.PI;
                 dist = dist * 60 * 1.1515;
                 if (unit == "K") {
                     dist = dist * 1.609344;
@@ -924,21 +902,20 @@ let LocationdisplayComponent = class LocationdisplayComponent {
                 return dist;
             }
         };
-        this.jstoday = Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(this.today, 'EEEE, MMMM d, y', 'en-US', '+0530');
+        this.jstoday = Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(this.today, "EEEE, MMMM d, y", "en-US", "+0530");
     }
     ngOnInit() {
         this.getLocations.getLocations().then(loc => {
             this.locations = loc.loc;
-            console.log(this.locations);
             this.locations.sort((a, b) => a.name.localeCompare(b.name));
-            this.geoLocation.getPosition()
+            this.geoLocation
+                .getPosition()
                 .then(pos => {
-                console.log(`Position: ${pos.lng} ${pos.lat}`);
                 this.lng2 = pos.lng;
                 this.lat2 = pos.lat;
                 this.getLocationDistances();
             })
-                .catch((err) => {
+                .catch(err => {
                 console.log(err.message);
                 this.geoLocationSupported = false;
                 this.dataLoaded = true;
@@ -950,7 +927,7 @@ let LocationdisplayComponent = class LocationdisplayComponent {
             return 0;
         }
         else {
-            return (a.distance < b.distance) ? -1 : 1;
+            return a.distance < b.distance ? -1 : 1;
         }
     }
 };
@@ -962,7 +939,7 @@ LocationdisplayComponent.ctorParameters = () => [
 ];
 LocationdisplayComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-locationdisplay',
+        selector: "app-locationdisplay",
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./locationdisplay.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/locationdisplay/locationdisplay.component.html")).default,
         providers: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]],
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./locationdisplay.component.css */ "./src/app/locationdisplay/locationdisplay.component.css")).default]
@@ -1125,32 +1102,14 @@ let MapComponent = class MapComponent {
         this.title = "Flavor Map";
         this.lat = 43.0389;
         this.lng = -87.90647;
-        // if (navigator) {
-        //   navigator.geolocation.getCurrentPosition(pos => {
-        //     this.lng2 = +pos.coords.longitude;
-        //     this.lat2 = +pos.coords.latitude;
-        //   });
-        // }
-        // this.geoLocation.getPosition().then(pos => {
-        //   console.log(`Position: ${pos.lng} ${pos.lat}`);
-        //   this.lng2 = pos.lng;
-        //   this.lat2 = pos.lat;
-        // })
     }
     ngOnInit() {
-        // this.http.get('http://localhost:3000/api/locations').subscribe(data => {
-        //   // console.log(data);
-        //   this.locations = data;
-        //   console.log(this.locations);
-        // });
         this.geoLocation.getPosition().then(pos => {
-            console.log(`Position: ${pos.lng} ${pos.lat}`);
             this.lng2 = pos.lng;
             this.lat2 = pos.lat;
         });
         this.getLocations.getLocations().then(loc => {
             this.locations = loc.loc;
-            console.log(this.locations);
         });
     }
 };
