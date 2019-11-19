@@ -36,6 +36,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin-page/admin-page.component.html":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/admin-page/admin-page.component.html ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>admin-page works!</p>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html":
 /*!**************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html ***!
@@ -98,6 +111,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<form class=\"form-inline md-form form-sm\">\n    <input class=\"form-control form-control-sm ml-3 w-40\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\" mdbInput>\n</form>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/login-page/login-page.component.html":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/login-page/login-page.component.html ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!auth.loggedIn\">You are logged out</div>\n\n<div>\n  <button (click)=\"auth.login()\" *ngIf=\"!auth.loggedIn\">Log In</button>\n  <button (click)=\"auth.logout()\" *ngIf=\"auth.loggedIn\">Log Out</button>\n</div>\n\n\n<div *ngIf=\"auth.loggedIn\">\n\n    <a href=\"addlocation\">Add Location</a><br>\n    <a href=\"manualaddflavors\">Add Flavor</a>\n\n</div>\n\n\n");
 
 /***/ }),
 
@@ -462,6 +488,50 @@ AddLocationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/admin-page/admin-page.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/admin-page/admin-page.component.css ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluLXBhZ2UvYWRtaW4tcGFnZS5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/admin-page/admin-page.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/admin-page/admin-page.component.ts ***!
+  \****************************************************/
+/*! exports provided: AdminPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminPageComponent", function() { return AdminPageComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let AdminPageComponent = class AdminPageComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+AdminPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-admin-page',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./admin-page.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin-page/admin-page.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./admin-page.component.css */ "./src/app/admin-page/admin-page.component.css")).default]
+    })
+], AdminPageComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -480,6 +550,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./add-location/add-location.component */ "./src/app/add-location/add-location.component.ts");
 /* harmony import */ var _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./contactform/contactform.component */ "./src/app/contactform/contactform.component.ts");
 /* harmony import */ var _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./manual-add-flavors/manual-add-flavors.component */ "./src/app/manual-add-flavors/manual-add-flavors.component.ts");
+/* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
+/* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./auth.guard */ "./src/app/auth.guard.ts");
+
+
 
 
 
@@ -489,11 +563,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: 'map', component: _map_map_component__WEBPACK_IMPORTED_MODULE_3__["MapComponent"] },
-    { path: 'addlocation', component: _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_5__["AddLocationComponent"] },
-    { path: 'manualaddflavors', component: _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_7__["ManualAddFlavorsComponent"] },
-    { path: 'contact', component: _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_6__["ContactformComponent"] },
-    { path: '**', component: _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_4__["LocationdisplayComponent"] },
+    { path: "map", component: _map_map_component__WEBPACK_IMPORTED_MODULE_3__["MapComponent"] },
+    {
+        path: "addlocation",
+        component: _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_5__["AddLocationComponent"],
+        canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+    },
+    {
+        path: "manualaddflavors",
+        component: _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_7__["ManualAddFlavorsComponent"],
+        canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+    },
+    { path: "contact", component: _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_6__["ContactformComponent"] },
+    { path: "login", component: _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_8__["LoginPageComponent"] },
+    { path: "**", component: _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_4__["LocationdisplayComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -534,18 +617,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+
 
 
 
 let AppComponent = class AppComponent {
-    constructor(http) {
+    constructor(http, auth) {
         this.http = http;
+        this.auth = auth;
         this.title = "app";
     }
-    ngOnInit() { }
+    ngOnInit() {
+        this.auth.localAuthSetup();
+        this.auth.handleAuthCallback();
+    }
 };
 AppComponent.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
 ];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -592,6 +682,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/dist/ngx-pagination.js");
 /* harmony import */ var _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./contactform/contactform.component */ "./src/app/contactform/contactform.component.ts");
 /* harmony import */ var _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./manual-add-flavors/manual-add-flavors.component */ "./src/app/manual-add-flavors/manual-add-flavors.component.ts");
+/* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
+/* harmony import */ var _admin_page_admin_page_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin-page/admin-page.component */ "./src/app/admin-page/admin-page.component.ts");
+
+
 
 
 
@@ -632,7 +726,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _footer_footer_component__WEBPACK_IMPORTED_MODULE_16__["FooterComponent"],
             _twitterfeed_twitterfeed_component__WEBPACK_IMPORTED_MODULE_19__["TwitterfeedComponent"],
             _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_21__["ContactformComponent"],
-            _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_22__["ManualAddFlavorsComponent"]
+            _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_22__["ManualAddFlavorsComponent"],
+            _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_23__["LoginPageComponent"],
+            _admin_page_admin_page_component__WEBPACK_IMPORTED_MODULE_24__["AdminPageComponent"]
         ],
         imports: [
             ng2_search_filter__WEBPACK_IMPORTED_MODULE_12__["Ng2SearchPipeModule"],
@@ -650,6 +746,174 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth.guard.ts":
+/*!*******************************!*\
+  !*** ./src/app/auth.guard.ts ***!
+  \*******************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+let AuthGuard = class AuthGuard {
+    constructor(auth) {
+        this.auth = auth;
+    }
+    canActivate(next, state) {
+        return this.auth.isAuthenticated$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(loggedIn => {
+            if (!loggedIn) {
+                this.auth.login(state.url);
+            }
+        }));
+    }
+};
+AuthGuard.ctorParameters = () => [
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+];
+AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: "root"
+    })
+], AuthGuard);
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/auth.service.ts ***!
+  \*********************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _auth0_auth0_spa_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @auth0/auth0-spa-js */ "./node_modules/@auth0/auth0-spa-js/dist/auth0-spa-js.production.js");
+/* harmony import */ var _auth0_auth0_spa_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_auth0_auth0_spa_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+
+
+
+let AuthService = class AuthService {
+    constructor(router) {
+        this.router = router;
+        // Create an observable of Auth0 instance of client
+        this.auth0Client$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(_auth0_auth0_spa_js__WEBPACK_IMPORTED_MODULE_2___default()({
+            domain: "dev-zrnic0qj.auth0.com",
+            client_id: "yFZLdtAgQnqzkH6rai55VdgGB8u86AJ9",
+            redirect_uri: `${window.location.origin}`
+        })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["shareReplay"])(1), // Every subscription receives the same shared value
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(err => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(err)));
+        // Define observables for SDK methods that return promises by default
+        // For each Auth0 SDK method, first ensure the client instance is ready
+        // concatMap: Using the client instance, call SDK method; SDK returns a promise
+        // from: Convert that resulting promise into an observable
+        this.isAuthenticated$ = this.auth0Client$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])((client) => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(client.isAuthenticated())), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(res => (this.loggedIn = res)));
+        this.handleRedirectCallback$ = this.auth0Client$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])((client) => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(client.handleRedirectCallback())));
+        // Create subject and public observable of user profile data
+        this.userProfileSubject$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
+        this.userProfile$ = this.userProfileSubject$.asObservable();
+        // Create a local property for login status
+        this.loggedIn = null;
+    }
+    // When calling, options can be passed if desired
+    // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser
+    getUser$(options) {
+        return this.auth0Client$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])((client) => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(client.getUser(options))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(user => this.userProfileSubject$.next(user)));
+    }
+    localAuthSetup() {
+        // This should only be called on app initialization
+        // Set up local authentication streams
+        const checkAuth$ = this.isAuthenticated$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])((loggedIn) => {
+            if (loggedIn) {
+                // If authenticated, get user and set in app
+                // NOTE: you could pass options here if needed
+                return this.getUser$();
+            }
+            // If not authenticated, return stream that emits 'false'
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(loggedIn);
+        }));
+        checkAuth$.subscribe();
+    }
+    login(redirectPath = "/") {
+        // A desired redirect path can be passed to login method
+        // (e.g., from a route guard)
+        // Ensure Auth0 client instance exists
+        this.auth0Client$.subscribe((client) => {
+            // Call method to log in
+            client.loginWithRedirect({
+                redirect_uri: `${window.location.origin}`,
+                appState: { target: redirectPath }
+            });
+        });
+    }
+    handleAuthCallback() {
+        // Call when app reloads after user logs in with Auth0
+        const params = window.location.search;
+        if (params.includes("code=") && params.includes("state=")) {
+            let targetRoute; // Path to redirect to after login processsed
+            const authComplete$ = this.handleRedirectCallback$.pipe(
+            // Have client, now call method to handle auth callback redirect
+            Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(cbRes => {
+                // Get and set target redirect route from callback results
+                targetRoute =
+                    cbRes.appState && cbRes.appState.target
+                        ? cbRes.appState.target
+                        : "/";
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])(() => {
+                // Redirect callback complete; get user and login status
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["combineLatest"])([this.getUser$(), this.isAuthenticated$]);
+            }));
+            // Subscribe to authentication completion observable
+            // Response will be an array of user and login status
+            authComplete$.subscribe(([user, loggedIn]) => {
+                // Redirect to target route after callback processing
+                this.router.navigate([targetRoute]);
+            });
+        }
+    }
+    logout() {
+        // Ensure Auth0 client instance exists
+        this.auth0Client$.subscribe((client) => {
+            // Call method to log out
+            client.logout({
+                client_id: "yFZLdtAgQnqzkH6rai55VdgGB8u86AJ9",
+                returnTo: `${window.location.origin}`
+            });
+        });
+    }
+};
+AuthService.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+];
+AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: "root"
+    })
+], AuthService);
 
 
 
@@ -1000,6 +1264,56 @@ LocationsearchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/login-page/login-page.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/login-page/login-page.component.css ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luLXBhZ2UvbG9naW4tcGFnZS5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/login-page/login-page.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/login-page/login-page.component.ts ***!
+  \****************************************************/
+/*! exports provided: LoginPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageComponent", function() { return LoginPageComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../auth.service */ "./src/app/auth.service.ts");
+
+
+
+let LoginPageComponent = class LoginPageComponent {
+    constructor(auth) {
+        this.auth = auth;
+    }
+    ngOnInit() { }
+};
+LoginPageComponent.ctorParameters = () => [
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+];
+LoginPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: "app-login-page",
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./login-page.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/login-page/login-page.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./login-page.component.css */ "./src/app/login-page/login-page.component.css")).default]
+    })
+], LoginPageComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/manual-add-flavors/manual-add-flavors.component.css":
 /*!*********************************************************************!*\
   !*** ./src/app/manual-add-flavors/manual-add-flavors.component.css ***!
@@ -1338,7 +1652,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const environment = {
     production: false,
-    AUTH0_TOKEN: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlJVRkVPRFZCTmtORE1EZzBSakE1T0VVNE5ERXhRVU15UkRkRFFUWkRRVFJDUWtGQk56UTROQSJ9.eyJpc3MiOiJodHRwczovL2Rldi16cm5pYzBxai5hdXRoMC5jb20vIiwic3ViIjoiTksxWkFGN1VmVUE3S2x3QXkwVUJPbzdTZ2dCMjVKOTBAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vbWtlZmxhdm9ycy5jb20vYXBpIiwiaWF0IjoxNTc0MTE1NDA0LCJleHAiOjE1NzQyMDE4MDQsImF6cCI6Ik5LMVpBRjdVZlVBN0tsd0F5MFVCT283U2dnQjI1SjkwIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.n0-_wsr2s0gnr9FHJiLOp1u_tGXXR04UCmNrtooY6pYmye_17megu3s1siNsdWM9vBUGDYtv3Wt3iWPj8FomPs_EDVctWhVRjZe6GGzlHkpnUKX6DkavDBhQHfal5OHzXRq0S8pWdxvzuLkov_S44goKRgK-G-QiYjGtkloCwvieZ7XNm3mkpUEZEQspek-ehGvtcdx1oZCofRvGJArdjFIoYY2iGeDU5JLoikIrE48U8HT5zTCz674AM3C0HI-4Z5JDvKocV_o_NER_B7qy_Y3c1-oAmCOd_vCHDNdjiFtGXIWpQErxsXJb9E-8FH5FloKFIcwNZzuH9cNugOAEcA"
+    AUTH0_TOKEN: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlJVRkVPRFZCTmtORE1EZzBSakE1T0VVNE5ERXhRVU15UkRkRFFUWkRRVFJDUWtGQk56UTROQSJ9.eyJpc3MiOiJodHRwczovL2Rldi16cm5pYzBxai5hdXRoMC5jb20vIiwic3ViIjoiTksxWkFGN1VmVUE3S2x3QXkwVUJPbzdTZ2dCMjVKOTBAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vbWtlZmxhdm9ycy5jb20vYXBpIiwiaWF0IjoxNTc0MTE1NDA0LCJleHAiOjE1NzQyMDE4MDQsImF6cCI6Ik5LMVpBRjdVZlVBN0tsd0F5MFVCT283U2dnQjI1SjkwIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.n0-_wsr2s0gnr9FHJiLOp1u_tGXXR04UCmNrtooY6pYmye_17megu3s1siNsdWM9vBUGDYtv3Wt3iWPj8FomPs_EDVctWhVRjZe6GGzlHkpnUKX6DkavDBhQHfal5OHzXRq0S8pWdxvzuLkov_S44goKRgK-G-QiYjGtkloCwvieZ7XNm3mkpUEZEQspek-ehGvtcdx1oZCofRvGJArdjFIoYY2iGeDU5JLoikIrE48U8HT5zTCz674AM3C0HI-4Z5JDvKocV_o_NER_B7qy_Y3c1-oAmCOd_vCHDNdjiFtGXIWpQErxsXJb9E-8FH5FloKFIcwNZzuH9cNugOAEcA",
+    AUTH0_DOMAIN: "dev-zrnic0qj.auth0.com",
+    AUTH0_CLIENT_ID: "yFZLdtAgQnqzkH6rai55VdgGB8u86AJ9"
 };
 /*
  * For easier debugging in development mode, you can import the following file

@@ -21,6 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ContactformComponent } from './contactform/contactform.component';
 import { ManualAddFlavorsComponent } from './manual-add-flavors/manual-add-flavors.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { ManualAddFlavorsComponent } from './manual-add-flavors/manual-add-flavo
     FooterComponent,
     TwitterfeedComponent,
     ContactformComponent,
-    ManualAddFlavorsComponent
+    ManualAddFlavorsComponent,
+    LoginPageComponent,
+    AdminPageComponent
   ],
   imports: [
     Ng2SearchPipeModule,

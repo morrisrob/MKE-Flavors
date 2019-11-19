@@ -1,0 +1,16 @@
+<div *ngIf="!auth.loggedIn">You are logged out</div>
+
+<div>
+  <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
+  <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
+</div>
+
+
+<div *ngIf="auth.loggedIn">
+
+    <a href="addlocation">Add Location</a><br>
+    <a href="manualaddflavors">Add Flavor</a>
+
+</div>
+
+
