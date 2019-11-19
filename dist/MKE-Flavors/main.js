@@ -36,19 +36,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin-page/admin-page.component.html":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/admin-page/admin-page.component.html ***!
-  \********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>admin-page works!</p>\n");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html":
 /*!**************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html ***!
@@ -488,50 +475,6 @@ AddLocationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/admin-page/admin-page.component.css":
-/*!*****************************************************!*\
-  !*** ./src/app/admin-page/admin-page.component.css ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluLXBhZ2UvYWRtaW4tcGFnZS5jb21wb25lbnQuY3NzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/admin-page/admin-page.component.ts":
-/*!****************************************************!*\
-  !*** ./src/app/admin-page/admin-page.component.ts ***!
-  \****************************************************/
-/*! exports provided: AdminPageComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminPageComponent", function() { return AdminPageComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let AdminPageComponent = class AdminPageComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-AdminPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-admin-page',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./admin-page.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin-page/admin-page.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./admin-page.component.css */ "./src/app/admin-page/admin-page.component.css")).default]
-    })
-], AdminPageComponent);
-
-
-
-/***/ }),
-
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -683,8 +626,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./contactform/contactform.component */ "./src/app/contactform/contactform.component.ts");
 /* harmony import */ var _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./manual-add-flavors/manual-add-flavors.component */ "./src/app/manual-add-flavors/manual-add-flavors.component.ts");
 /* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
-/* harmony import */ var _admin_page_admin_page_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin-page/admin-page.component */ "./src/app/admin-page/admin-page.component.ts");
-
 
 
 
@@ -728,7 +669,6 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_21__["ContactformComponent"],
             _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_22__["ManualAddFlavorsComponent"],
             _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_23__["LoginPageComponent"],
-            _admin_page_admin_page_component__WEBPACK_IMPORTED_MODULE_24__["AdminPageComponent"]
         ],
         imports: [
             ng2_search_filter__WEBPACK_IMPORTED_MODULE_12__["Ng2SearchPipeModule"],
