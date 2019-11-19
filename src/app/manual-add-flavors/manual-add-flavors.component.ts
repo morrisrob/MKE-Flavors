@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { environment } from "../../environments/environment";
 
 @Component({
   selector: "app-manual-add-flavors",
@@ -19,7 +20,14 @@ export class ManualAddFlavorsComponent implements OnInit {
   onSubmit() {
     let formData = this.addFlavorForm.value;
     let formDataJSON = JSON.stringify(formData);
-    this.http.post('/api/add-flavor', formData).subscribe();
+    this.http
+      .post("/api/add-flavor", formData, {
+        headers: new HttpHeaders().set(
+          "Authorization",
+          `Bearer ${environment.AUTH0_TOKEN}`
+        )
+      })
+      .subscribe();
 
     console.log("formData is " + FormData);
     console.log("formDataJSON is " + formDataJSON);

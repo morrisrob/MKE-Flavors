@@ -409,6 +409,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -434,7 +436,11 @@ let AddLocationComponent = class AddLocationComponent {
     onSubmit() {
         let formData = this.addLocationForm.value;
         let formDataJSON = JSON.stringify(formData);
-        this.http.post("/api/addLocation", formData).subscribe();
+        this.http
+            .post("/api/addLocation", formData, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]().set("Authorization", `Bearer ${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AUTH0_TOKEN}`)
+        })
+            .subscribe();
         console.log("formData is " + FormData);
         console.log("formDataJSON is " + formDataJSON);
         this.addLocationForm.reset();
@@ -1021,6 +1027,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -1039,7 +1047,11 @@ let ManualAddFlavorsComponent = class ManualAddFlavorsComponent {
     onSubmit() {
         let formData = this.addFlavorForm.value;
         let formDataJSON = JSON.stringify(formData);
-        this.http.post('/api/add-flavor', formData).subscribe();
+        this.http
+            .post("/api/add-flavor", formData, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]().set("Authorization", `Bearer ${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AUTH0_TOKEN}`)
+        })
+            .subscribe();
         console.log("formData is " + FormData);
         console.log("formDataJSON is " + formDataJSON);
         this.addFlavorForm.reset();
@@ -1325,7 +1337,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 
 const environment = {
-    production: false
+    production: false,
+    AUTH0_TOKEN: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlJVRkVPRFZCTmtORE1EZzBSakE1T0VVNE5ERXhRVU15UkRkRFFUWkRRVFJDUWtGQk56UTROQSJ9.eyJpc3MiOiJodHRwczovL2Rldi16cm5pYzBxai5hdXRoMC5jb20vIiwic3ViIjoiTksxWkFGN1VmVUE3S2x3QXkwVUJPbzdTZ2dCMjVKOTBAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vbWtlZmxhdm9ycy5jb20vYXBpIiwiaWF0IjoxNTc0MTE1NDA0LCJleHAiOjE1NzQyMDE4MDQsImF6cCI6Ik5LMVpBRjdVZlVBN0tsd0F5MFVCT283U2dnQjI1SjkwIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.n0-_wsr2s0gnr9FHJiLOp1u_tGXXR04UCmNrtooY6pYmye_17megu3s1siNsdWM9vBUGDYtv3Wt3iWPj8FomPs_EDVctWhVRjZe6GGzlHkpnUKX6DkavDBhQHfal5OHzXRq0S8pWdxvzuLkov_S44goKRgK-G-QiYjGtkloCwvieZ7XNm3mkpUEZEQspek-ehGvtcdx1oZCofRvGJArdjFIoYY2iGeDU5JLoikIrE48U8HT5zTCz674AM3C0HI-4Z5JDvKocV_o_NER_B7qy_Y3c1-oAmCOd_vCHDNdjiFtGXIWpQErxsXJb9E-8FH5FloKFIcwNZzuH9cNugOAEcA"
 };
 /*
  * For easier debugging in development mode, you can import the following file
