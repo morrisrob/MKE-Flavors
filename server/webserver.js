@@ -10,12 +10,11 @@ const CONNECTION_URL = process.env.MONGODB_URI;
 const DATABASE_NAME = "mkeflavors";
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
+let database;
+let collection;
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: false }));
-
-let database;
-let collection;
 
 const checkJwt = jwt({
   // Dynamically provide a signing key
@@ -33,34 +32,6 @@ const checkJwt = jwt({
   issuer: `https://dev-zrnic0qj.auth0.com/`,
   algorithms: ["RS256"]
 });
-
-// function Location(
-//   name,
-//   address,
-//   city,
-//   state,
-//   zip,
-//   lat,
-//   long,
-//   URL,
-//   flavorSelector,
-//   descriptionSelector,
-//   flavors,
-//   descriptions
-// ) {
-//   (this.name = name),
-//     (this.address = address),
-//     (this.city = city),
-//     (this.state = state),
-//     (this.zip = zip),
-//     (this.lat = lat),
-//     (this.long = long),
-//     (this.URL = URL);
-//   this.flavorSelector = flavorSelector;
-//   this.descriptionSelector = descriptionSelector;
-//   this.flavors = flavors;
-//   this.descriptions = descriptions;
-// }
 
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, function(
   err,
@@ -106,7 +77,6 @@ app.get("/api/location/:id", checkJwt, (request, response) => {
 });
 
 app.post("/api/addLocation", checkJwt, (request, response) => {
-  let location2 = request.body;
   collection.insert(
     [
       {
