@@ -639,26 +639,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _getdata_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./getdata.service */ "./src/app/getdata.service.ts");
-/* harmony import */ var _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./locationdisplay/locationdisplay.component */ "./src/app/locationdisplay/locationdisplay.component.ts");
-/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
-/* harmony import */ var _locationsearch_locationsearch_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./locationsearch/locationsearch.component */ "./src/app/locationsearch/locationsearch.component.ts");
-/* harmony import */ var _location_filter_pipe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./location-filter.pipe */ "./src/app/location-filter.pipe.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var ng2_search_filter__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ng2-search-filter */ "./node_modules/ng2-search-filter/ng2-search-filter.js");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm2015/agm-core.js");
-/* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./map/map.component */ "./src/app/map/map.component.ts");
-/* harmony import */ var _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./add-location/add-location.component */ "./src/app/add-location/add-location.component.ts");
-/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
-/* harmony import */ var _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/geolocation.service */ "./src/app/shared/geolocation.service.ts");
-/* harmony import */ var _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./shared/getlocations.service */ "./src/app/shared/getlocations.service.ts");
-/* harmony import */ var _twitterfeed_twitterfeed_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./twitterfeed/twitterfeed.component */ "./src/app/twitterfeed/twitterfeed.component.ts");
-/* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/dist/ngx-pagination.js");
-/* harmony import */ var _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./contactform/contactform.component */ "./src/app/contactform/contactform.component.ts");
-/* harmony import */ var _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./manual-add-flavors/manual-add-flavors.component */ "./src/app/manual-add-flavors/manual-add-flavors.component.ts");
-/* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
-/* harmony import */ var _external_api_external_api_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./external-api/external-api.component */ "./src/app/external-api/external-api.component.ts");
-
+/* harmony import */ var _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./locationdisplay/locationdisplay.component */ "./src/app/locationdisplay/locationdisplay.component.ts");
+/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
+/* harmony import */ var _locationsearch_locationsearch_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./locationsearch/locationsearch.component */ "./src/app/locationsearch/locationsearch.component.ts");
+/* harmony import */ var _location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./location-filter.pipe */ "./src/app/location-filter.pipe.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var ng2_search_filter__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ng2-search-filter */ "./node_modules/ng2-search-filter/ng2-search-filter.js");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm2015/agm-core.js");
+/* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./map/map.component */ "./src/app/map/map.component.ts");
+/* harmony import */ var _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./add-location/add-location.component */ "./src/app/add-location/add-location.component.ts");
+/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
+/* harmony import */ var _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./shared/geolocation.service */ "./src/app/shared/geolocation.service.ts");
+/* harmony import */ var _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/getlocations.service */ "./src/app/shared/getlocations.service.ts");
+/* harmony import */ var _twitterfeed_twitterfeed_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./twitterfeed/twitterfeed.component */ "./src/app/twitterfeed/twitterfeed.component.ts");
+/* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/dist/ngx-pagination.js");
+/* harmony import */ var _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./contactform/contactform.component */ "./src/app/contactform/contactform.component.ts");
+/* harmony import */ var _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./manual-add-flavors/manual-add-flavors.component */ "./src/app/manual-add-flavors/manual-add-flavors.component.ts");
+/* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
+/* harmony import */ var _external_api_external_api_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./external-api/external-api.component */ "./src/app/external-api/external-api.component.ts");
 
 
 
@@ -691,33 +689,33 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
         declarations: [
             _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-            _location_filter_pipe__WEBPACK_IMPORTED_MODULE_11__["LocationFilterPipe"],
-            _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_8__["LocationdisplayComponent"],
-            _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__["NavbarComponent"],
-            _locationsearch_locationsearch_component__WEBPACK_IMPORTED_MODULE_10__["LocationsearchComponent"],
-            _location_filter_pipe__WEBPACK_IMPORTED_MODULE_11__["LocationFilterPipe"],
-            _map_map_component__WEBPACK_IMPORTED_MODULE_15__["MapComponent"],
-            _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_16__["AddLocationComponent"],
-            _footer_footer_component__WEBPACK_IMPORTED_MODULE_17__["FooterComponent"],
-            _twitterfeed_twitterfeed_component__WEBPACK_IMPORTED_MODULE_20__["TwitterfeedComponent"],
-            _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_22__["ContactformComponent"],
-            _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_23__["ManualAddFlavorsComponent"],
-            _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_24__["LoginPageComponent"],
-            _external_api_external_api_component__WEBPACK_IMPORTED_MODULE_25__["ExternalApiComponent"],
+            _location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["LocationFilterPipe"],
+            _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_7__["LocationdisplayComponent"],
+            _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__["NavbarComponent"],
+            _locationsearch_locationsearch_component__WEBPACK_IMPORTED_MODULE_9__["LocationsearchComponent"],
+            _location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["LocationFilterPipe"],
+            _map_map_component__WEBPACK_IMPORTED_MODULE_14__["MapComponent"],
+            _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_15__["AddLocationComponent"],
+            _footer_footer_component__WEBPACK_IMPORTED_MODULE_16__["FooterComponent"],
+            _twitterfeed_twitterfeed_component__WEBPACK_IMPORTED_MODULE_19__["TwitterfeedComponent"],
+            _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_21__["ContactformComponent"],
+            _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_22__["ManualAddFlavorsComponent"],
+            _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_23__["LoginPageComponent"],
+            _external_api_external_api_component__WEBPACK_IMPORTED_MODULE_24__["ExternalApiComponent"]
         ],
         imports: [
-            ng2_search_filter__WEBPACK_IMPORTED_MODULE_13__["Ng2SearchPipeModule"],
-            ngx_pagination__WEBPACK_IMPORTED_MODULE_21__["NgxPaginationModule"],
-            _agm_core__WEBPACK_IMPORTED_MODULE_14__["AgmCoreModule"].forRoot({
-                apiKey: 'AIzaSyBR7bGUdRRxG8QHkcR3RNc2fnbNLfSgZ9M'
+            ng2_search_filter__WEBPACK_IMPORTED_MODULE_12__["Ng2SearchPipeModule"],
+            ngx_pagination__WEBPACK_IMPORTED_MODULE_20__["NgxPaginationModule"],
+            _agm_core__WEBPACK_IMPORTED_MODULE_13__["AgmCoreModule"].forRoot({
+                apiKey: "AIzaSyBR7bGUdRRxG8QHkcR3RNc2fnbNLfSgZ9M"
             }),
-            _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_11__["ReactiveFormsModule"]
         ],
-        providers: [_getdata_service__WEBPACK_IMPORTED_MODULE_7__["GetdataService"], _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_18__["GeolocationService"], _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_19__["GetlocationsService"], _shared_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"]],
+        providers: [_shared_geolocation_service__WEBPACK_IMPORTED_MODULE_17__["GeolocationService"], _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_18__["GetlocationsService"], _shared_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
     })
 ], AppModule);
@@ -1080,33 +1078,6 @@ FooterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./footer.component.css */ "./src/app/footer/footer.component.css")).default]
     })
 ], FooterComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/getdata.service.ts":
-/*!************************************!*\
-  !*** ./src/app/getdata.service.ts ***!
-  \************************************/
-/*! exports provided: GetdataService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetdataService", function() { return GetdataService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let GetdataService = class GetdataService {
-    constructor() { }
-};
-GetdataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], GetdataService);
 
 
 
