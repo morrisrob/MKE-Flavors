@@ -62,6 +62,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/external-api/external-api.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/external-api/external-api.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<button (click)=\"pingApi()\">Ping API</button>\n\n<pre *ngIf=\"responseJson\">\n<code>{{ responseJson | json }}</code>\n</pre>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/footer/footer.component.html":
 /*!************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/footer/footer.component.html ***!
@@ -494,7 +507,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./contactform/contactform.component */ "./src/app/contactform/contactform.component.ts");
 /* harmony import */ var _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./manual-add-flavors/manual-add-flavors.component */ "./src/app/manual-add-flavors/manual-add-flavors.component.ts");
 /* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
-/* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./auth.guard */ "./src/app/auth.guard.ts");
+/* harmony import */ var _app_authentication_auth_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../app/authentication/auth.guard */ "./src/app/authentication/auth.guard.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _app_authentication_interceptor_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../app/authentication/interceptor.service */ "./src/app/authentication/interceptor.service.ts");
+/* harmony import */ var _external_api_external_api_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./external-api/external-api.component */ "./src/app/external-api/external-api.component.ts");
+
+
+
 
 
 
@@ -508,14 +527,18 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: "map", component: _map_map_component__WEBPACK_IMPORTED_MODULE_3__["MapComponent"] },
     {
+        path: 'external-api',
+        component: _external_api_external_api_component__WEBPACK_IMPORTED_MODULE_12__["ExternalApiComponent"],
+    },
+    {
         path: "addlocation",
         component: _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_5__["AddLocationComponent"],
-        canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+        canActivate: [_app_authentication_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
     },
     {
         path: "manualaddflavors",
         component: _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_7__["ManualAddFlavorsComponent"],
-        canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
+        canActivate: [_app_authentication_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
     },
     { path: "contact", component: _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_6__["ContactformComponent"] },
     { path: "login", component: _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_8__["LoginPageComponent"] },
@@ -526,7 +549,14 @@ let AppRoutingModule = class AppRoutingModule {
 AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+        providers: [
+            {
+                provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"],
+                useClass: _app_authentication_interceptor_service__WEBPACK_IMPORTED_MODULE_11__["InterceptorService"],
+                multi: true
+            }
+        ]
     })
 ], AppRoutingModule);
 
@@ -560,7 +590,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var _authentication_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./authentication/auth.service */ "./src/app/authentication/auth.service.ts");
 
 
 
@@ -578,7 +608,7 @@ let AppComponent = class AppComponent {
 };
 AppComponent.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
+    { type: _authentication_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
 ];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -603,29 +633,33 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _getdata_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./getdata.service */ "./src/app/getdata.service.ts");
-/* harmony import */ var _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./locationdisplay/locationdisplay.component */ "./src/app/locationdisplay/locationdisplay.component.ts");
-/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
-/* harmony import */ var _locationsearch_locationsearch_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./locationsearch/locationsearch.component */ "./src/app/locationsearch/locationsearch.component.ts");
-/* harmony import */ var _location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./location-filter.pipe */ "./src/app/location-filter.pipe.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var ng2_search_filter__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ng2-search-filter */ "./node_modules/ng2-search-filter/ng2-search-filter.js");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm2015/agm-core.js");
-/* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./map/map.component */ "./src/app/map/map.component.ts");
-/* harmony import */ var _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./add-location/add-location.component */ "./src/app/add-location/add-location.component.ts");
-/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
-/* harmony import */ var _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./shared/geolocation.service */ "./src/app/shared/geolocation.service.ts");
-/* harmony import */ var _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/getlocations.service */ "./src/app/shared/getlocations.service.ts");
-/* harmony import */ var _twitterfeed_twitterfeed_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./twitterfeed/twitterfeed.component */ "./src/app/twitterfeed/twitterfeed.component.ts");
-/* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/dist/ngx-pagination.js");
-/* harmony import */ var _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./contactform/contactform.component */ "./src/app/contactform/contactform.component.ts");
-/* harmony import */ var _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./manual-add-flavors/manual-add-flavors.component */ "./src/app/manual-add-flavors/manual-add-flavors.component.ts");
-/* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
+/* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./shared/api.service */ "./src/app/shared/api.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _getdata_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./getdata.service */ "./src/app/getdata.service.ts");
+/* harmony import */ var _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./locationdisplay/locationdisplay.component */ "./src/app/locationdisplay/locationdisplay.component.ts");
+/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
+/* harmony import */ var _locationsearch_locationsearch_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./locationsearch/locationsearch.component */ "./src/app/locationsearch/locationsearch.component.ts");
+/* harmony import */ var _location_filter_pipe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./location-filter.pipe */ "./src/app/location-filter.pipe.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var ng2_search_filter__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ng2-search-filter */ "./node_modules/ng2-search-filter/ng2-search-filter.js");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm2015/agm-core.js");
+/* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./map/map.component */ "./src/app/map/map.component.ts");
+/* harmony import */ var _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./add-location/add-location.component */ "./src/app/add-location/add-location.component.ts");
+/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
+/* harmony import */ var _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/geolocation.service */ "./src/app/shared/geolocation.service.ts");
+/* harmony import */ var _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./shared/getlocations.service */ "./src/app/shared/getlocations.service.ts");
+/* harmony import */ var _twitterfeed_twitterfeed_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./twitterfeed/twitterfeed.component */ "./src/app/twitterfeed/twitterfeed.component.ts");
+/* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/dist/ngx-pagination.js");
+/* harmony import */ var _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./contactform/contactform.component */ "./src/app/contactform/contactform.component.ts");
+/* harmony import */ var _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./manual-add-flavors/manual-add-flavors.component */ "./src/app/manual-add-flavors/manual-add-flavors.component.ts");
+/* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
+/* harmony import */ var _external_api_external_api_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./external-api/external-api.component */ "./src/app/external-api/external-api.component.ts");
+
+
 
 
 
@@ -654,36 +688,37 @@ __webpack_require__.r(__webpack_exports__);
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-            _location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["LocationFilterPipe"],
-            _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_7__["LocationdisplayComponent"],
-            _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__["NavbarComponent"],
-            _locationsearch_locationsearch_component__WEBPACK_IMPORTED_MODULE_9__["LocationsearchComponent"],
-            _location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["LocationFilterPipe"],
-            _map_map_component__WEBPACK_IMPORTED_MODULE_14__["MapComponent"],
-            _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_15__["AddLocationComponent"],
-            _footer_footer_component__WEBPACK_IMPORTED_MODULE_16__["FooterComponent"],
-            _twitterfeed_twitterfeed_component__WEBPACK_IMPORTED_MODULE_19__["TwitterfeedComponent"],
-            _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_21__["ContactformComponent"],
-            _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_22__["ManualAddFlavorsComponent"],
-            _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_23__["LoginPageComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
+            _location_filter_pipe__WEBPACK_IMPORTED_MODULE_11__["LocationFilterPipe"],
+            _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_8__["LocationdisplayComponent"],
+            _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__["NavbarComponent"],
+            _locationsearch_locationsearch_component__WEBPACK_IMPORTED_MODULE_10__["LocationsearchComponent"],
+            _location_filter_pipe__WEBPACK_IMPORTED_MODULE_11__["LocationFilterPipe"],
+            _map_map_component__WEBPACK_IMPORTED_MODULE_15__["MapComponent"],
+            _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_16__["AddLocationComponent"],
+            _footer_footer_component__WEBPACK_IMPORTED_MODULE_17__["FooterComponent"],
+            _twitterfeed_twitterfeed_component__WEBPACK_IMPORTED_MODULE_20__["TwitterfeedComponent"],
+            _contactform_contactform_component__WEBPACK_IMPORTED_MODULE_22__["ContactformComponent"],
+            _manual_add_flavors_manual_add_flavors_component__WEBPACK_IMPORTED_MODULE_23__["ManualAddFlavorsComponent"],
+            _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_24__["LoginPageComponent"],
+            _external_api_external_api_component__WEBPACK_IMPORTED_MODULE_25__["ExternalApiComponent"],
         ],
         imports: [
-            ng2_search_filter__WEBPACK_IMPORTED_MODULE_12__["Ng2SearchPipeModule"],
-            ngx_pagination__WEBPACK_IMPORTED_MODULE_20__["NgxPaginationModule"],
-            _agm_core__WEBPACK_IMPORTED_MODULE_13__["AgmCoreModule"].forRoot({
+            ng2_search_filter__WEBPACK_IMPORTED_MODULE_13__["Ng2SearchPipeModule"],
+            ngx_pagination__WEBPACK_IMPORTED_MODULE_21__["NgxPaginationModule"],
+            _agm_core__WEBPACK_IMPORTED_MODULE_14__["AgmCoreModule"].forRoot({
                 apiKey: 'AIzaSyBR7bGUdRRxG8QHkcR3RNc2fnbNLfSgZ9M'
             }),
-            _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_11__["ReactiveFormsModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"]
         ],
-        providers: [_getdata_service__WEBPACK_IMPORTED_MODULE_6__["GetdataService"], _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_17__["GeolocationService"], _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_18__["GetlocationsService"]],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
+        providers: [_getdata_service__WEBPACK_IMPORTED_MODULE_7__["GetdataService"], _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_18__["GeolocationService"], _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_19__["GetlocationsService"], _shared_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"]],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
     })
 ], AppModule);
 
@@ -691,10 +726,10 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/auth.guard.ts":
-/*!*******************************!*\
-  !*** ./src/app/auth.guard.ts ***!
-  \*******************************/
+/***/ "./src/app/authentication/auth.guard.ts":
+/*!**********************************************!*\
+  !*** ./src/app/authentication/auth.guard.ts ***!
+  \**********************************************/
 /*! exports provided: AuthGuard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -703,7 +738,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth.service */ "./src/app/authentication/auth.service.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 
@@ -734,10 +769,10 @@ AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/auth.service.ts":
-/*!*********************************!*\
-  !*** ./src/app/auth.service.ts ***!
-  \*********************************/
+/***/ "./src/app/authentication/auth.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/authentication/auth.service.ts ***!
+  \************************************************/
 /*! exports provided: AuthService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -764,7 +799,8 @@ let AuthService = class AuthService {
         this.auth0Client$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(_auth0_auth0_spa_js__WEBPACK_IMPORTED_MODULE_2___default()({
             domain: "dev-zrnic0qj.auth0.com",
             client_id: "yFZLdtAgQnqzkH6rai55VdgGB8u86AJ9",
-            redirect_uri: `${window.location.origin}`
+            redirect_uri: `${window.location.origin}`,
+            audience: "https://mkeflavors.com/api"
         })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["shareReplay"])(1), // Every subscription receives the same shared value
         Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(err => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(err)));
         // Define observables for SDK methods that return promises by default
@@ -778,6 +814,9 @@ let AuthService = class AuthService {
         this.userProfile$ = this.userProfileSubject$.asObservable();
         // Create a local property for login status
         this.loggedIn = null;
+    }
+    getTokenSilently$(options) {
+        return this.auth0Client$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])((client) => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(client.getTokenSilently(options))));
     }
     // When calling, options can be passed if desired
     // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser
@@ -859,6 +898,52 @@ AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/authentication/interceptor.service.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/authentication/interceptor.service.ts ***!
+  \*******************************************************/
+/*! exports provided: InterceptorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterceptorService", function() { return InterceptorService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth.service */ "./src/app/authentication/auth.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+let InterceptorService = class InterceptorService {
+    constructor(auth) {
+        this.auth = auth;
+    }
+    intercept(req, next) {
+        return this.auth.getTokenSilently$().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(token => {
+            const tokenReq = req.clone({
+                setHeaders: { Authorization: `Bearer ${token}` }
+            });
+            return next.handle(tokenReq);
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(err => Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(err)));
+    }
+};
+InterceptorService.ctorParameters = () => [
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+];
+InterceptorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: "root"
+    })
+], InterceptorService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/contactform/contactform.component.css":
 /*!*******************************************************!*\
   !*** ./src/app/contactform/contactform.component.css ***!
@@ -898,6 +983,59 @@ ContactformComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./contactform.component.css */ "./src/app/contactform/contactform.component.css")).default]
     })
 ], ContactformComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/external-api/external-api.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/external-api/external-api.component.css ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2V4dGVybmFsLWFwaS9leHRlcm5hbC1hcGkuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/external-api/external-api.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/external-api/external-api.component.ts ***!
+  \********************************************************/
+/*! exports provided: ExternalApiComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExternalApiComponent", function() { return ExternalApiComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/api.service */ "./src/app/shared/api.service.ts");
+
+
+
+let ExternalApiComponent = class ExternalApiComponent {
+    constructor(api) {
+        this.api = api;
+    }
+    ngOnInit() { }
+    pingApi() {
+        this.api.ping$().subscribe(res => (this.responseJson = res));
+    }
+};
+ExternalApiComponent.ctorParameters = () => [
+    { type: _shared_api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"] }
+];
+ExternalApiComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: "app-external-api",
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./external-api.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/external-api/external-api.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./external-api.component.css */ "./src/app/external-api/external-api.component.css")).default]
+    })
+], ExternalApiComponent);
 
 
 
@@ -1034,10 +1172,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocationdisplayComponent", function() { return LocationdisplayComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/geolocation.service */ "./src/app/shared/geolocation.service.ts");
-/* harmony import */ var _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/getlocations.service */ "./src/app/shared/getlocations.service.ts");
+/* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../shared/api.service */ "./src/app/shared/api.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/geolocation.service */ "./src/app/shared/geolocation.service.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 
 
@@ -1058,12 +1196,6 @@ let LocationdisplayComponent = class LocationdisplayComponent {
         this.timeoutDisplayLocations = () => {
             this.geoLocationSupported = false;
             this.dataLoaded = true;
-        };
-        this.getLocationsFromAPI = () => {
-            this.http.get("/api/locations").subscribe(data => {
-                this.locations = data;
-                this.locations.sort((a, b) => a.name.localeCompare(b.name));
-            });
         };
         this.getLocationDistances = () => {
             let distanceArray = [];
@@ -1142,13 +1274,13 @@ let LocationdisplayComponent = class LocationdisplayComponent {
     }
 };
 LocationdisplayComponent.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
-    { type: _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_3__["GeolocationService"] },
-    { type: _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_4__["GetlocationsService"] },
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
+    { type: _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_4__["GeolocationService"] },
+    { type: _shared_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"] },
     { type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"] }
 ];
 LocationdisplayComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: "app-locationdisplay",
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./locationdisplay.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/locationdisplay/locationdisplay.component.html")).default,
         providers: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]],
@@ -1229,7 +1361,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageComponent", function() { return LoginPageComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var _authentication_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../authentication/auth.service */ "./src/app/authentication/auth.service.ts");
 
 
 
@@ -1240,7 +1372,7 @@ let LoginPageComponent = class LoginPageComponent {
     ngOnInit() { }
 };
 LoginPageComponent.ctorParameters = () => [
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+    { type: _authentication_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
 ];
 LoginPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1281,8 +1413,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
-
 
 
 
@@ -1299,18 +1429,18 @@ let ManualAddFlavorsComponent = class ManualAddFlavorsComponent {
         this.SERVER_URL = "/api/";
     }
     onSubmit() {
+        console.log("yeah");
         let formData = this.addFlavorForm.value;
         let formDataJSON = JSON.stringify(formData);
         this.http
-            .post("/api/add-flavor", formData, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]().set("Authorization", `Bearer ${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AUTH0_TOKEN}`)
-        })
+            .post("/api/add-flavor", formData, {})
             .subscribe();
         console.log("formData is " + FormData);
         console.log("formDataJSON is " + formDataJSON);
         this.addFlavorForm.reset();
     }
-    ngOnInit() { }
+    ngOnInit() {
+    }
 };
 ManualAddFlavorsComponent.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
@@ -1351,10 +1481,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapComponent", function() { return MapComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/geolocation.service */ "./src/app/shared/geolocation.service.ts");
-/* harmony import */ var _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/getlocations.service */ "./src/app/shared/getlocations.service.ts");
+/* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../shared/api.service */ "./src/app/shared/api.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/geolocation.service */ "./src/app/shared/geolocation.service.ts");
 
 
 
@@ -1366,8 +1496,6 @@ let MapComponent = class MapComponent {
         this.geoLocation = geoLocation;
         this.getLocations = getLocations;
         this.title = "Flavor Map";
-        this.lat = 43.0389;
-        this.lng = -87.90647;
     }
     ngOnInit() {
         this.geoLocation.getPosition().then(pos => {
@@ -1380,12 +1508,12 @@ let MapComponent = class MapComponent {
     }
 };
 MapComponent.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
-    { type: _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_3__["GeolocationService"] },
-    { type: _shared_getlocations_service__WEBPACK_IMPORTED_MODULE_4__["GetlocationsService"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
+    { type: _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_4__["GeolocationService"] },
+    { type: _shared_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"] }
 ];
 MapComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: "app-map",
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./map.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/map/map.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./map.component.css */ "./src/app/map/map.component.css")).default]
@@ -1435,6 +1563,52 @@ NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./navbar.component.css */ "./src/app/navbar/navbar.component.css")).default]
     })
 ], NavbarComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/api.service.ts":
+/*!***************************************!*\
+  !*** ./src/app/shared/api.service.ts ***!
+  \***************************************/
+/*! exports provided: ApiService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiService", function() { return ApiService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let ApiService = class ApiService {
+    constructor(handler) {
+        this.httpClient = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"](handler);
+    }
+    ping$() {
+        return this.httpClient.get("/api/locations");
+    }
+    getLocations() {
+        return new Promise((resolve, reject) => {
+            this.httpClient.get("/api/locations").subscribe(resp => {
+                resolve({ loc: resp });
+            }, err => {
+                reject(err);
+            });
+        });
+    }
+};
+ApiService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpBackend"] }
+];
+ApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: "root"
+    })
+], ApiService);
 
 
 

@@ -21,7 +21,8 @@ export class AuthService {
     createAuth0Client({
       domain: "dev-zrnic0qj.auth0.com",
       client_id: "yFZLdtAgQnqzkH6rai55VdgGB8u86AJ9",
-      redirect_uri: `${window.location.origin}`
+      redirect_uri: `${window.location.origin}`,
+      audience: "https://mkeflavors.com/api"
     })
   ) as Observable<Auth0Client>).pipe(
     shareReplay(1), // Every subscription receives the same shared value
@@ -43,6 +44,12 @@ export class AuthService {
   userProfile$ = this.userProfileSubject$.asObservable();
   // Create a local property for login status
   loggedIn: boolean = null;
+
+  getTokenSilently$(options?): Observable<string> {
+    return this.auth0Client$.pipe(
+      concatMap((client: Auth0Client) => from(client.getTokenSilently(options)))
+    );
+  }
 
   constructor(private router: Router) {}
 

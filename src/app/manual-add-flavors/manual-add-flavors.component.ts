@@ -17,15 +17,14 @@ export class ManualAddFlavorsComponent implements OnInit {
     flavor: new FormControl("", [Validators.required])
   });
 
+  
+
   onSubmit() {
+    console.log("yeah");
     let formData = this.addFlavorForm.value;
     let formDataJSON = JSON.stringify(formData);
     this.http
       .post("/api/add-flavor", formData, {
-        headers: new HttpHeaders().set(
-          "Authorization",
-          `Bearer ${environment.AUTH0_TOKEN}`
-        )
       })
       .subscribe();
 
@@ -37,7 +36,11 @@ export class ManualAddFlavorsComponent implements OnInit {
   SERVER_URL = "/api/";
   uploadForm: FormGroup;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
 
-  ngOnInit() {}
+    
+  }
+
+  ngOnInit() {
+  }
 }

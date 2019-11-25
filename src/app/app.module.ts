@@ -1,3 +1,4 @@
+import { ApiService } from './shared/api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +23,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ContactformComponent } from './contactform/contactform.component';
 import { ManualAddFlavorsComponent } from './manual-add-flavors/manual-add-flavors.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { ExternalApiComponent } from './external-api/external-api.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     ContactformComponent,
     ManualAddFlavorsComponent,
     LoginPageComponent,
+    ExternalApiComponent,
   ],
   imports: [
     Ng2SearchPipeModule,
@@ -51,7 +54,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [GetdataService, GeolocationService, GetlocationsService],
+  providers: [GetdataService, GeolocationService, GetlocationsService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
+import { ApiService } from "./../shared/api.service";
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { GeolocationService } from "../shared/geolocation.service";
-import { GetlocationsService } from "../shared/getlocations.service";
 import { DatePipe } from "@angular/common";
 import { formatDate } from "@angular/common";
 
@@ -28,7 +28,7 @@ export class LocationdisplayComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private geoLocation: GeolocationService,
-    private getLocations: GetlocationsService,
+    private getLocations: ApiService,
     private datePipe: DatePipe
   ) {
     this.jstoday = formatDate(this.today, "EEEE, MMMM d, y", "en-US", "+0530");
@@ -57,13 +57,6 @@ export class LocationdisplayComponent implements OnInit {
   timeoutDisplayLocations = () => {
     this.geoLocationSupported = false;
     this.dataLoaded = true;
-  };
-
-  getLocationsFromAPI = () => {
-    this.http.get("/api/locations").subscribe(data => {
-      this.locations = data;
-      this.locations.sort((a, b) => a.name.localeCompare(b.name));
-    });
   };
 
   getLocationDistances = () => {

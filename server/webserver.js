@@ -16,21 +16,24 @@ let collection;
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: false }));
 
+const authConfig = {
+  domain: "dev-zrnic0qj.auth0.com",
+  audience: "https://mkeflavors.com/api"
+};
+
+// Define middleware that validates incoming bearer tokens
+// using JWKS from dev-zrnic0qj.auth0.com
 const checkJwt = jwt({
-  // Dynamically provide a signing key
-  // based on the kid in the header and
-  // the signing keys provided by the JWKS endpoint.
   secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `https://dev-zrnic0qj.auth0.com/.well-known/jwks.json`
+    jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
   }),
 
-  // Validate the audience and the issuer.
-  audience: "https://mkeflavors.com/api",
-  issuer: `https://dev-zrnic0qj.auth0.com/`,
-  algorithms: ["RS256"]
+  audience: authConfig.audience,
+  issuer: `https://${authConfig.domain}/`,
+  algorithm: ["RS256"]
 });
 
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, function(
@@ -73,6 +76,12 @@ app.get("/api/location/:id", checkJwt, (request, response) => {
       return response.status(500).send(error);
     }
     response.send(result);
+  });
+});
+
+app.get("/api/external", checkJwt, (req, res) => {
+  res.send({
+    msg: "Your Access Token was successfully validated!"
   });
 });
 
@@ -121,11 +130,11 @@ app.post("/api/add-flavor", checkJwt, (request, response) => {
 });
 
 // Serve static files
-app.use(Express.static(__dirname + "/dist/MKE-Flavors"));
+app.use(Express.static(__dirname + "/../dist/MKE-Flavors"));
 
 // Send all requests to index.html
 app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname + "/dist/MKE-Flavors/index.html"));
+  res.sendFile(path.join(__dirname + "/../dist/MKE-Flavors/index.html"));
 });
 
 new CronJob(
