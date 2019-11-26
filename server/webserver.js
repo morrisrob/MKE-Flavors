@@ -50,10 +50,10 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, function(
   console.log("Database connection ready");
 
   // Initialize the app.
-  var server = app.listen(process.env.PORT || 4200, function() {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
+  // var server = app.listen(process.env.PORT || 4200, function() {
+  //   var port = server.address().port;
+  //   console.log("App now running on port", port);
+  // });
 });
 
 app.get("/api/locations", (request, response) => {
@@ -141,6 +141,11 @@ app.use(Express.static(__dirname + "/../dist/MKE-Flavors"));
 // Send all requests to index.html
 app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname + "/../dist/MKE-Flavors/index.html"));
+});
+
+var server = app.listen(process.env.PORT || 4200, function() {
+  var port = server.address().port;
+  console.log("App now running on port", port);
 });
 
 new CronJob(
