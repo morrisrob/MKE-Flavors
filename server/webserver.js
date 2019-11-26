@@ -129,6 +129,12 @@ app.post("/api/add-flavor", checkJwt, (request, response) => {
   );
 });
 
+// {
+//     flavorCal: {
+//       [request.body.date]: { flavor: request.body.flavor, description: "yeah" }
+//     }
+//   };
+
 // Serve static files
 app.use(Express.static(__dirname + "/../dist/MKE-Flavors"));
 

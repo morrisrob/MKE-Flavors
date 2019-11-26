@@ -7,7 +7,7 @@ import { AppComponent } from "./app.component";
 import { LocationdisplayComponent } from "./locationdisplay/locationdisplay.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { LocationsearchComponent } from "./locationsearch/locationsearch.component";
-import { LocationFilterPipe } from "./location-filter.pipe";
+import { LocationFilterPipe } from "./shared/location-filter.pipe";
 import { FormsModule } from "@angular/forms";
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { AgmCoreModule } from "@agm/core";

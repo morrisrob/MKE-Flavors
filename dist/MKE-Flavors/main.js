@@ -642,7 +642,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./locationdisplay/locationdisplay.component */ "./src/app/locationdisplay/locationdisplay.component.ts");
 /* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
 /* harmony import */ var _locationsearch_locationsearch_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./locationsearch/locationsearch.component */ "./src/app/locationsearch/locationsearch.component.ts");
-/* harmony import */ var _location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./location-filter.pipe */ "./src/app/location-filter.pipe.ts");
+/* harmony import */ var _shared_location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./shared/location-filter.pipe */ "./src/app/shared/location-filter.pipe.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var ng2_search_filter__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ng2-search-filter */ "./node_modules/ng2-search-filter/ng2-search-filter.js");
 /* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm2015/agm-core.js");
@@ -689,11 +689,11 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
         declarations: [
             _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-            _location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["LocationFilterPipe"],
+            _shared_location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["LocationFilterPipe"],
             _locationdisplay_locationdisplay_component__WEBPACK_IMPORTED_MODULE_7__["LocationdisplayComponent"],
             _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__["NavbarComponent"],
             _locationsearch_locationsearch_component__WEBPACK_IMPORTED_MODULE_9__["LocationsearchComponent"],
-            _location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["LocationFilterPipe"],
+            _shared_location_filter_pipe__WEBPACK_IMPORTED_MODULE_10__["LocationFilterPipe"],
             _map_map_component__WEBPACK_IMPORTED_MODULE_14__["MapComponent"],
             _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_15__["AddLocationComponent"],
             _footer_footer_component__WEBPACK_IMPORTED_MODULE_16__["FooterComponent"],
@@ -1078,42 +1078,6 @@ FooterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./footer.component.css */ "./src/app/footer/footer.component.css")).default]
     })
 ], FooterComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/location-filter.pipe.ts":
-/*!*****************************************!*\
-  !*** ./src/app/location-filter.pipe.ts ***!
-  \*****************************************/
-/*! exports provided: LocationFilterPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocationFilterPipe", function() { return LocationFilterPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let LocationFilterPipe = class LocationFilterPipe {
-    transform(value, input) {
-        if (input) {
-            input = input;
-            return value.filter(function (el) {
-                return el.toString().indexOf(input) > -1;
-            });
-        }
-        return value;
-    }
-};
-LocationFilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-        name: 'FilterPipe',
-    }),
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
-], LocationFilterPipe);
 
 
 
@@ -1671,6 +1635,42 @@ GetlocationsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], GetlocationsService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/location-filter.pipe.ts":
+/*!************************************************!*\
+  !*** ./src/app/shared/location-filter.pipe.ts ***!
+  \************************************************/
+/*! exports provided: LocationFilterPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocationFilterPipe", function() { return LocationFilterPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let LocationFilterPipe = class LocationFilterPipe {
+    transform(value, input) {
+        if (input) {
+            input = input;
+            return value.filter(function (el) {
+                return el.toString().indexOf(input) > -1;
+            });
+        }
+        return value;
+    }
+};
+LocationFilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'FilterPipe',
+    }),
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], LocationFilterPipe);
 
 
 
