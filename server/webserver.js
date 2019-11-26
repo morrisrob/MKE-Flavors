@@ -8,33 +8,12 @@ const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = process.env.MONGODB_URI;
 const DATABASE_NAME = "mkeflavors";
-const jwt = require("express-jwt");
-const jwksRsa = require("jwks-rsa");
-let database;
+const checkJwt = require("./middleware/checkJwt");
+
 let collection;
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: false }));
-
-const authConfig = {
-  domain: "dev-zrnic0qj.auth0.com",
-  audience: "https://mkeflavors.com/api"
-};
-
-// Define middleware that validates incoming bearer tokens
-// using JWKS from dev-zrnic0qj.auth0.com
-const checkJwt = jwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
-  }),
-
-  audience: authConfig.audience,
-  issuer: `https://${authConfig.domain}/`,
-  algorithm: ["RS256"]
-});
 
 MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, function(
   err,
@@ -44,16 +23,9 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, function(
     process.exit(1);
   }
 
-  // Save database object from the callback for reuse.
-  database = location.db(DATABASE_NAME);
+  let database = location.db(DATABASE_NAME);
   collection = database.collection("locations");
   console.log("Database connection ready");
-
-  // Initialize the app.
-  // var server = app.listen(process.env.PORT || 4200, function() {
-  //   var port = server.address().port;
-  //   console.log("App now running on port", port);
-  // });
 });
 
 app.get("/api/locations", (request, response) => {
@@ -65,7 +37,7 @@ app.get("/api/locations", (request, response) => {
   });
 });
 
-app.get("/api/location/:id", checkJwt, (request, response) => {
+app.get("/api/location/:id", checkJwt.checkJwt, (request, response) => {
   console.log(request.params.id);
   collection.findOne({ _id: ObjectId(request.params.id) }, function(
     error,
@@ -79,13 +51,13 @@ app.get("/api/location/:id", checkJwt, (request, response) => {
   });
 });
 
-app.get("/api/external", checkJwt, (req, res) => {
+app.get("/api/external", checkJwt.checkJwt, (req, res) => {
   res.send({
     msg: "Your Access Token was successfully validated!"
   });
 });
 
-app.post("/api/addLocation", checkJwt, (request, response) => {
+app.post("/api/addLocation", checkJwt.checkJwt, (request, response) => {
   collection.insert(
     [
       {
@@ -112,7 +84,7 @@ app.post("/api/addLocation", checkJwt, (request, response) => {
   );
 });
 
-app.post("/api/add-flavor", checkJwt, (request, response) => {
+app.post("/api/add-flavor", checkJwt.checkJwt, (request, response) => {
   let update = { $set: {} };
   update.$set = { flavorCal: { [request.body.date]: request.body.flavor } };
   console.log(update);
@@ -128,12 +100,6 @@ app.post("/api/add-flavor", checkJwt, (request, response) => {
     }
   );
 });
-
-// {
-//     flavorCal: {
-//       [request.body.date]: { flavor: request.body.flavor, description: "yeah" }
-//     }
-//   };
 
 // Serve static files
 app.use(Express.static(__dirname + "/../dist/MKE-Flavors"));
