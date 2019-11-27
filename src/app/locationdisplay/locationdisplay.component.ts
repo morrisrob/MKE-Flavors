@@ -34,7 +34,7 @@ export class LocationdisplayComponent implements OnInit {
     this.jstoday = formatDate(this.today, "EEEE, MMMM d, y", "en-US", "+0530");
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.getLocations.getLocations().then(loc => {
       this.locations = loc.loc;
       this.locations.sort((a, b) => a.name.localeCompare(b.name));

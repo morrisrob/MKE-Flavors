@@ -17,16 +17,11 @@ export class ManualAddFlavorsComponent implements OnInit {
     flavor: new FormControl("", [Validators.required])
   });
 
-  
-
   onSubmit() {
     console.log("yeah");
     let formData = this.addFlavorForm.value;
     let formDataJSON = JSON.stringify(formData);
-    this.http
-      .post("/api/add-flavor", formData, {
-      })
-      .subscribe();
+    this.http.post("/api/add-flavor", formData, {}).subscribe();
 
     console.log("formData is " + FormData);
     console.log("formDataJSON is " + formDataJSON);
@@ -36,11 +31,7 @@ export class ManualAddFlavorsComponent implements OnInit {
   SERVER_URL = "/api/";
   uploadForm: FormGroup;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
 
-    
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

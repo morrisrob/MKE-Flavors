@@ -3,6 +3,8 @@ var router = express.Router();
 const checkJwt = require("../middleware/checkJwt");
 const ObjectId = require("mongodb").ObjectID;
 
+const flavors = require("../controllers/flavors");
+
 const mongo = require("../database/mongo");
 let db;
 
@@ -64,12 +66,13 @@ router.post("/addLocation", checkJwt.checkJwt, (request, response) => {
 });
 
 router.post("/add-flavor", checkJwt.checkJwt, (request, response) => {
-  let update = { $set: {} };
-  update.$set = { flavorCal: { [request.body.date]: request.body.flavor } };
-  console.log(update);
+  let flavorArray = [];
+  flavorArray.push(request.body.flavor);
+  let setFlavor = {};
+  setFlavor["flavorCal." + request.body.date] = flavorArray;
   db.collection("locations").findOneAndUpdate(
     { _id: ObjectId(request.body.locationId) },
-    update,
+    { $set: setFlavor },
     { upsert: true },
     function(err, result) {
       if (err) {

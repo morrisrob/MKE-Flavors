@@ -1182,20 +1182,22 @@ let LocationdisplayComponent = class LocationdisplayComponent {
         this.jstoday = Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(this.today, "EEEE, MMMM d, y", "en-US", "+0530");
     }
     ngOnInit() {
-        this.getLocations.getLocations().then(loc => {
-            this.locations = loc.loc;
-            this.locations.sort((a, b) => a.name.localeCompare(b.name));
-            this.geoLocation
-                .getPosition()
-                .then(pos => {
-                this.lng2 = pos.lng;
-                this.lat2 = pos.lat;
-                this.getLocationDistances();
-            })
-                .catch(err => {
-                console.log(err.message);
-                this.geoLocationSupported = false;
-                this.dataLoaded = true;
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.getLocations.getLocations().then(loc => {
+                this.locations = loc.loc;
+                this.locations.sort((a, b) => a.name.localeCompare(b.name));
+                this.geoLocation
+                    .getPosition()
+                    .then(pos => {
+                    this.lng2 = pos.lng;
+                    this.lat2 = pos.lat;
+                    this.getLocationDistances();
+                })
+                    .catch(err => {
+                    console.log(err.message);
+                    this.geoLocationSupported = false;
+                    this.dataLoaded = true;
+                });
             });
         });
     }
@@ -1367,15 +1369,12 @@ let ManualAddFlavorsComponent = class ManualAddFlavorsComponent {
         console.log("yeah");
         let formData = this.addFlavorForm.value;
         let formDataJSON = JSON.stringify(formData);
-        this.http
-            .post("/api/add-flavor", formData, {})
-            .subscribe();
+        this.http.post("/api/add-flavor", formData, {}).subscribe();
         console.log("formData is " + FormData);
         console.log("formDataJSON is " + formDataJSON);
         this.addFlavorForm.reset();
     }
-    ngOnInit() {
-    }
+    ngOnInit() { }
 };
 ManualAddFlavorsComponent.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
