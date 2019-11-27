@@ -9,46 +9,60 @@ const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL = process.env.MONGODB_URI;
 const DATABASE_NAME = "mkeflavors";
 const checkJwt = require("./middleware/checkJwt");
+let db;
 
-let collection;
+const mongo = require("./database/mongo");
+
+const routes = require("./routes/apiRoutes")(app);
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: false }));
 
-MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, function(
-  err,
-  location
-) {
-  if (err) {
-    process.exit(1);
-  }
+// getMongoConnection.connect();
 
-  let database = location.db(DATABASE_NAME);
-  collection = database.collection("locations");
-  console.log("Database connection ready");
+// MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, function(
+//   err,
+//   location
+// ) {
+//   if (err) {
+//     process.exit(1);
+//   }
+
+//   let database = location.db(DATABASE_NAME);
+//   collection = database.collection("locations");
+//   console.log("Database connection ready");
+// });
+
+mongo.connectToServer(function(err, client) {
+  if (err) console.log(err);
+  db = mongo.getDb();
+
+  // start the rest of your app here
 });
 
 app.get("/api/locations", (request, response) => {
-  collection.find({}).toArray((error, result) => {
-    if (error) {
-      return response.status(500).send(error);
-    }
-    response.send(result);
-  });
+  db.collection("locations")
+    .find({})
+    .toArray((error, result) => {
+      if (error) {
+        return response.status(500).send(error);
+      }
+      response.send(result);
+    });
 });
 
 app.get("/api/location/:id", checkJwt.checkJwt, (request, response) => {
   console.log(request.params.id);
-  collection.findOne({ _id: ObjectId(request.params.id) }, function(
-    error,
-    result
-  ) {
-    console.log(result);
-    if (error) {
-      return response.status(500).send(error);
+  db.collection("locations").findOne(
+    { _id: ObjectId(request.params.id) },
+    function(error, result) {
+      console.log(result);
+      if (error) {
+        return response.status(500).send(error);
+      }
+      response.send(result);
     }
-    response.send(result);
-  });
+  );
 });
 
 app.get("/api/external", checkJwt.checkJwt, (req, res) => {
@@ -58,7 +72,7 @@ app.get("/api/external", checkJwt.checkJwt, (req, res) => {
 });
 
 app.post("/api/addLocation", checkJwt.checkJwt, (request, response) => {
-  collection.insert(
+  db.collection("locations").insert(
     [
       {
         name: request.body.name,
@@ -88,9 +102,10 @@ app.post("/api/add-flavor", checkJwt.checkJwt, (request, response) => {
   let update = { $set: {} };
   update.$set = { flavorCal: { [request.body.date]: request.body.flavor } };
   console.log(update);
-  collection.findOneAndUpdate(
+  db.collection("locations").findOneAndUpdate(
     { _id: ObjectId(request.body.locationId) },
     update,
+    { upsert: true },
     function(err, result) {
       if (err) {
         response.send({ error: "An error has occurred" });
