@@ -1,6 +1,84 @@
-module.exports = function(app) {
-  app.get("/marky", function(req, res) {
-    res.write("I am a new route");
-    res.end();
-  });
-};
+var express = require("express");
+var router = express.Router();
+const checkJwt = require("../middleware/checkJwt");
+const ObjectId = require("mongodb").ObjectID;
+
+const mongo = require("../database/mongo");
+let db;
+
+mongo.connectToServer(function(err, client) {
+  if (err) console.log(err);
+  db = mongo.getDb();
+});
+
+router.get("/locations", (request, response) => {
+  db.collection("locations")
+    .find({})
+    .toArray((error, result) => {
+      if (error) {
+        return response.status(500).send(error);
+      }
+      response.send(result);
+    });
+});
+
+router.get("/location/:id", checkJwt.checkJwt, (request, response) => {
+  console.log(request.params.id);
+  db.collection("locations").findOne(
+    { _id: ObjectId(request.params.id) },
+    function(error, result) {
+      console.log(result);
+      if (error) {
+        return response.status(500).send(error);
+      }
+      response.send(result);
+    }
+  );
+});
+
+router.post("/addLocation", checkJwt.checkJwt, (request, response) => {
+  db.collection("locations").insert(
+    [
+      {
+        name: request.body.name,
+        address: request.body.address,
+        city: request.body.city,
+        state: request.body.state,
+        zip: request.body.zip,
+        lat: request.body.lat,
+        long: request.body.long,
+        URL: request.body.URL,
+        flavorSelector: [request.body.flavorSelector],
+        descriptionSelector: [request.body.descriptionSelector]
+      }
+    ],
+    { safe: true },
+    function(err, result) {
+      if (err) {
+        response.send({ error: "An error has occurred" });
+      } else {
+        response.send(result[0]);
+      }
+    }
+  );
+});
+
+router.post("/add-flavor", checkJwt.checkJwt, (request, response) => {
+  let update = { $set: {} };
+  update.$set = { flavorCal: { [request.body.date]: request.body.flavor } };
+  console.log(update);
+  db.collection("locations").findOneAndUpdate(
+    { _id: ObjectId(request.body.locationId) },
+    update,
+    { upsert: true },
+    function(err, result) {
+      if (err) {
+        response.send({ error: "An error has occurred" });
+      } else {
+        response.send(result);
+      }
+    }
+  );
+});
+
+module.exports = router;
