@@ -1552,14 +1552,6 @@ let GeolocationService = class GeolocationService {
             }, { timeout: 5000 });
         });
     }
-    getCurrentPosition() {
-        if (navigator.geolocation) {
-            return new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
-        }
-        else {
-            return new Promise(resolve => resolve({}));
-        }
-    }
 };
 GeolocationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

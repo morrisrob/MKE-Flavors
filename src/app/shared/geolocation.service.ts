@@ -11,7 +11,6 @@ import { Observable } from "rxjs/Observable";
   providedIn: "root"
 })
 export class GeolocationService {
-
   getPosition(): Promise<any> {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
@@ -24,15 +23,5 @@ export class GeolocationService {
         { timeout: 5000 }
       );
     });
-  }
-
-  getCurrentPosition() {
-    if (navigator.geolocation) {
-      return new Promise((resolve, reject) =>
-        navigator.geolocation.getCurrentPosition(resolve, reject)
-      );
-    } else {
-      return new Promise(resolve => resolve({}));
-    }
   }
 }
