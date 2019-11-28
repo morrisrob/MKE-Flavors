@@ -26,7 +26,7 @@ function getTodaysFlavors() {
 
   cursor.each(function(err, item) {
     let flavorArray = [];
-    let descriptionArray = [];
+    // let descriptionArray = [];
 
     if (item != null && item.scrapedSite == true) {
       axios.get(item.URL).then(response => {
@@ -34,8 +34,7 @@ function getTodaysFlavors() {
         const $ = cheerio.load(html);
         const selectorArray = item.flavorSelector;
         const descriptionSelectorArray = item.descriptionSelector;
-        const selectorArrayLength = selectorArray.length;
-        for (let i = 0; i < selectorArrayLength; i++) {
+        for (let i = 0; i < selectorArray.length; i++) {
           let flavor = $(selectorArray[i]).text();
           if (flavor.includes(":") === true) {
             let flavorSplit = flavor.split(":");
@@ -45,20 +44,17 @@ function getTodaysFlavors() {
           const description = $(descriptionSelectorArray[i]).text();
           console.log(item.name + " flavor is " + flavor);
           console.log(item.name + " description is " + description);
-          flavorArray.push(flavor);
-          descriptionArray.push(description);
+          const flavDescripArray = [];
+          flavDescripArray.push(flavor, description);
+          flavorArray.push(flavDescripArray);
+          // descriptionArray.push(description);
         }
+        let setFlavor = {};
+        setFlavor["flavorCal." + today] = flavorArray;
         collection.findOneAndUpdate(
           { name: item.name },
           {
-            $set: {
-              flavorCal: {
-                [today]: {
-                  flavors: flavorArray,
-                  descriptions: descriptionArray
-                }
-              }
-            }
+            $set: { setFlavor }
           }
         );
       });

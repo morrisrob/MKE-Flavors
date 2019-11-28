@@ -18,18 +18,12 @@ export class LocationdisplayComponent implements OnInit {
   lat2: any;
   dataLoaded: Boolean;
   geoLocationSupported: boolean;
-  term: any;
-
   today = new Date();
   jstoday = "";
 
-  p: number = 1;
-
   constructor(
-    private http: HttpClient,
     private geoLocation: GeolocationService,
-    private getLocations: ApiService,
-    private datePipe: DatePipe
+    private getLocations: ApiService
   ) {
     this.jstoday = formatDate(this.today, "EEEE, MMMM d, y", "en-US", "+0530");
   }
@@ -62,35 +56,22 @@ export class LocationdisplayComponent implements OnInit {
   getLocationDistances = () => {
     let distanceArray = [];
     for (let i = 0; i < this.locations.length; i++) {
-      let locLat = this.locations[i].lat;
-      let locLong = this.locations[i].long;
-      let distance = this.distance(this.lat2, this.lng2, locLat, locLong, "M");
-      let distanceRounded = Math.round(distance * 10) / 10;
-      distanceArray.push(distanceRounded);
+      let distance = this.calculateDistance(
+        this.lat2,
+        this.lng2,
+        this.locations[i].lat,
+        this.locations[i].long,
+        "M"
+      );
+      this.locations[i].distance = Math.round(distance * 10) / 10;
     }
-    this.distances = distanceArray;
-    this.addDistanceToArray();
     this.locations.sort(function(a, b) {
       return a.distance - b.distance;
     });
     this.dataLoaded = true;
   };
 
-  addDistanceToArray = () => {
-    for (let i = 0; i < this.locations.length; i++) {
-      this.locations[i].distance = this.distances[i];
-    }
-  };
-
-  sortFunction(a, b) {
-    if (a.distance === b.distance) {
-      return 0;
-    } else {
-      return a.distance < b.distance ? -1 : 1;
-    }
-  }
-
-  distance = (lat1, lon1, lat2, lon2, unit) => {
+  calculateDistance = (lat1, lon1, lat2, lon2, unit) => {
     if (lat1 == lat2 && lon1 == lon2) {
       return 0;
     } else {

@@ -1020,7 +1020,7 @@ let ExternalApiComponent = class ExternalApiComponent {
         this.api = api;
     }
     ngOnInit() { }
-    pingApi() {
+    getAllLocations() {
         this.api.ping$().subscribe(res => (this.responseJson = res));
     }
 };
@@ -1109,10 +1109,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../shared/api.service */ "./src/app/shared/api.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/geolocation.service */ "./src/app/shared/geolocation.service.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-
+/* harmony import */ var _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/geolocation.service */ "./src/app/shared/geolocation.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 
 
 
@@ -1120,14 +1118,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LocationdisplayComponent = class LocationdisplayComponent {
-    constructor(http, geoLocation, getLocations, datePipe) {
-        this.http = http;
+    constructor(geoLocation, getLocations) {
         this.geoLocation = geoLocation;
         this.getLocations = getLocations;
-        this.datePipe = datePipe;
         this.today = new Date();
         this.jstoday = "";
-        this.p = 1;
         this.timeoutDisplayLocations = () => {
             this.geoLocationSupported = false;
             this.dataLoaded = true;
@@ -1135,25 +1130,15 @@ let LocationdisplayComponent = class LocationdisplayComponent {
         this.getLocationDistances = () => {
             let distanceArray = [];
             for (let i = 0; i < this.locations.length; i++) {
-                let locLat = this.locations[i].lat;
-                let locLong = this.locations[i].long;
-                let distance = this.distance(this.lat2, this.lng2, locLat, locLong, "M");
-                let distanceRounded = Math.round(distance * 10) / 10;
-                distanceArray.push(distanceRounded);
+                let distance = this.calculateDistance(this.lat2, this.lng2, this.locations[i].lat, this.locations[i].long, "M");
+                this.locations[i].distance = Math.round(distance * 10) / 10;
             }
-            this.distances = distanceArray;
-            this.addDistanceToArray();
             this.locations.sort(function (a, b) {
                 return a.distance - b.distance;
             });
             this.dataLoaded = true;
         };
-        this.addDistanceToArray = () => {
-            for (let i = 0; i < this.locations.length; i++) {
-                this.locations[i].distance = this.distances[i];
-            }
-        };
-        this.distance = (lat1, lon1, lat2, lon2, unit) => {
+        this.calculateDistance = (lat1, lon1, lat2, lon2, unit) => {
             if (lat1 == lat2 && lon1 == lon2) {
                 return 0;
             }
@@ -1179,7 +1164,7 @@ let LocationdisplayComponent = class LocationdisplayComponent {
                 return dist;
             }
         };
-        this.jstoday = Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(this.today, "EEEE, MMMM d, y", "en-US", "+0530");
+        this.jstoday = Object(_angular_common__WEBPACK_IMPORTED_MODULE_4__["formatDate"])(this.today, "EEEE, MMMM d, y", "en-US", "+0530");
     }
     ngOnInit() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -1201,26 +1186,16 @@ let LocationdisplayComponent = class LocationdisplayComponent {
             });
         });
     }
-    sortFunction(a, b) {
-        if (a.distance === b.distance) {
-            return 0;
-        }
-        else {
-            return a.distance < b.distance ? -1 : 1;
-        }
-    }
 };
 LocationdisplayComponent.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
-    { type: _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_4__["GeolocationService"] },
-    { type: _shared_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"] },
-    { type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"] }
+    { type: _shared_geolocation_service__WEBPACK_IMPORTED_MODULE_3__["GeolocationService"] },
+    { type: _shared_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"] }
 ];
 LocationdisplayComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: "app-locationdisplay",
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./locationdisplay.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/locationdisplay/locationdisplay.component.html")).default,
-        providers: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]],
+        providers: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DatePipe"]],
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./locationdisplay.component.css */ "./src/app/locationdisplay/locationdisplay.component.css")).default]
     })
 ], LocationdisplayComponent);

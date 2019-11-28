@@ -13,7 +13,7 @@ export class ExternalApiComponent implements OnInit {
 
   ngOnInit() {}
 
-  pingApi() {
+  getAllLocations() {
     this.api.ping$().subscribe(res => (this.responseJson = res));
   }
 }
