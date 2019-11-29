@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!auth.loggedIn\">You are logged out</div>\n\n<div>\n  <button (click)=\"auth.login()\" *ngIf=\"!auth.loggedIn\">Log In</button>\n  <button (click)=\"auth.logout()\" *ngIf=\"auth.loggedIn\">Log Out</button>\n</div>\n\n\n<div *ngIf=\"auth.loggedIn\">\n\n    <a href=\"addlocation\">Add Location</a><br>\n    <a href=\"manualaddflavors\">Add Flavor</a>\n\n</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!auth.loggedIn\">You are logged out</div>\n\n<div>\n  <button (click)=\"auth.login()\" *ngIf=\"!auth.loggedIn\">Log In</button>\n  <button (click)=\"auth.logout()\" *ngIf=\"auth.loggedIn\">Log Out</button>\n</div>\n\n<div *ngIf=\"auth.loggedIn\">\n  <a href=\"addlocation\">Add Location</a><br />\n  <a href=\"manualaddflavors\">Add Flavor</a>\n  <a href=\"updateAllFlavors()\">Update All Flavors</a>\n\n  <button (click)=\"pingApi()\">Ping API</button>\n\n  <pre *ngIf=\"responseJson\">\n    <code>{{ responseJson | json }}</code>\n  </pre>\n</div>\n");
 
 /***/ }),
 
@@ -1274,17 +1274,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _authentication_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../authentication/auth.service */ "./src/app/authentication/auth.service.ts");
+/* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/api.service */ "./src/app/shared/api.service.ts");
+
 
 
 
 let LoginPageComponent = class LoginPageComponent {
-    constructor(auth) {
+    constructor(auth, api) {
         this.auth = auth;
+        this.api = api;
+    }
+    updateAllFlavors() {
+        this.api.updateFlavors().subscribe(res => (this.responseJson = res));
     }
     ngOnInit() { }
 };
 LoginPageComponent.ctorParameters = () => [
-    { type: _authentication_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+    { type: _authentication_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+    { type: _shared_api_service__WEBPACK_IMPORTED_MODULE_3__["ApiService"] }
 ];
 LoginPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1499,6 +1506,9 @@ let ApiService = class ApiService {
     }
     ping$() {
         return this.httpClient.get("/api/locations");
+    }
+    updateFlavors() {
+        return this.httpClient.get("api/update-all-flavors");
     }
     getLocations() {
         return new Promise((resolve, reject) => {

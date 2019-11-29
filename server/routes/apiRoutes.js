@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const checkJwt = require("../middleware/checkJwt");
 const ObjectId = require("mongodb").ObjectID;
+const getFlavors = require("../getflavors");
 
 const flavors = require("../controllers/flavors");
 
@@ -22,6 +23,11 @@ router.get("/locations", (request, response) => {
       }
       response.send(result);
     });
+});
+
+router.get("/update-all-flavors", checkJwt.checkJwt, (request, response) => {
+  getFlavors.getFlavorsDB();
+  response.send("Flavors Updated");
 });
 
 router.get("/location/:id", checkJwt.checkJwt, (request, response) => {

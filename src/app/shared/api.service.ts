@@ -16,6 +16,10 @@ export class ApiService {
     return this.httpClient.get("/api/locations");
   }
 
+  updateFlavors(): Observable<any> {
+    return this.httpClient.get("api/update-all-flavors");
+  }
+
   getLocations(): Promise<any> {
     return new Promise((resolve, reject) => {
       this.httpClient.get("/api/locations").subscribe(
