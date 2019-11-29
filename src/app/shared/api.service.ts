@@ -13,10 +13,12 @@ export class ApiService {
   }
 
   ping$(): Observable<any> {
+    console.log("ping ran");
     return this.httpClient.get("/api/locations");
   }
 
   updateFlavors(): Observable<any> {
+    console.log("updateFlavors ran");
     return this.httpClient.get("api/update-all-flavors");
   }
 

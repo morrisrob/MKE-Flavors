@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<button (click)=\"pingApi()\">Ping API</button>\n\n<pre *ngIf=\"responseJson\">\n<code>{{ responseJson | json }}</code>\n</pre>");
+/* harmony default export */ __webpack_exports__["default"] = ("<button (click)=\"pingApi()\">Ping API</button>\n\n<pre *ngIf=\"responseJson\">\n<code>{{ responseJson | json }}</code>\n</pre>\n");
 
 /***/ }),
 
@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!auth.loggedIn\">You are logged out</div>\n\n<div>\n  <button (click)=\"auth.login()\" *ngIf=\"!auth.loggedIn\">Log In</button>\n  <button (click)=\"auth.logout()\" *ngIf=\"auth.loggedIn\">Log Out</button>\n</div>\n\n<div *ngIf=\"auth.loggedIn\">\n  <a href=\"addlocation\">Add Location</a><br />\n  <a href=\"manualaddflavors\">Add Flavor</a>\n  <a href=\"updateAllFlavors()\">Update All Flavors</a>\n\n  <button (click)=\"pingApi()\">Ping API</button>\n\n  <pre *ngIf=\"responseJson\">\n    <code>{{ responseJson | json }}</code>\n  </pre>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!auth.loggedIn\">You are logged out</div>\n\n<div>\n  <button (click)=\"auth.login()\" *ngIf=\"!auth.loggedIn\">Log In</button>\n  <button (click)=\"auth.logout()\" *ngIf=\"auth.loggedIn\">Log Out</button>\n</div>\n\n<div *ngIf=\"auth.loggedIn\">\n  <a href=\"addlocation\">Add Location</a><br />\n  <a href=\"manualaddflavors\">Add Flavor</a>\n  <!-- <a href=\"updateAllFlavors()\">Update All Flavors</a> -->\n\n  <button (click)=\"pingApi()\">Ping API</button>\n  <button (click)=\"updateAllFlavors()\">Update All Flavors</button>\n\n  <pre *ngIf=\"responseJson\">\n    <code>{{ responseJson | json }}</code>\n  </pre>\n</div>\n");
 
 /***/ }),
 
@@ -1023,6 +1023,9 @@ let ExternalApiComponent = class ExternalApiComponent {
     getAllLocations() {
         this.api.ping$().subscribe(res => (this.responseJson = res));
     }
+    pingApi() {
+        this.api.ping$().subscribe(res => (this.responseJson = res));
+    }
 };
 ExternalApiComponent.ctorParameters = () => [
     { type: _shared_api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"] }
@@ -1287,6 +1290,9 @@ let LoginPageComponent = class LoginPageComponent {
     updateAllFlavors() {
         this.api.updateFlavors().subscribe(res => (this.responseJson = res));
     }
+    pingApi() {
+        this.api.ping$().subscribe(res => (this.responseJson = res));
+    }
     ngOnInit() { }
 };
 LoginPageComponent.ctorParameters = () => [
@@ -1505,9 +1511,11 @@ let ApiService = class ApiService {
         this.httpClient = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"](handler);
     }
     ping$() {
+        console.log("ping ran");
         return this.httpClient.get("/api/locations");
     }
     updateFlavors() {
+        console.log("updateFlavors ran");
         return this.httpClient.get("api/update-all-flavors");
     }
     getLocations() {

@@ -8,9 +8,10 @@
 <div *ngIf="auth.loggedIn">
   <a href="addlocation">Add Location</a><br />
   <a href="manualaddflavors">Add Flavor</a>
-  <a href="updateAllFlavors()">Update All Flavors</a>
+  <!-- <a href="updateAllFlavors()">Update All Flavors</a> -->
 
   <button (click)="pingApi()">Ping API</button>
+  <button (click)="updateAllFlavors()">Update All Flavors</button>
 
   <pre *ngIf="responseJson">
     <code>{{ responseJson | json }}</code>

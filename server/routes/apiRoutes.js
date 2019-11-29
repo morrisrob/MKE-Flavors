@@ -25,9 +25,9 @@ router.get("/locations", (request, response) => {
     });
 });
 
-router.get("/update-all-flavors", checkJwt.checkJwt, (request, response) => {
+router.get("/update-all-flavors", (request, response) => {
   getFlavors.getFlavorsDB();
-  response.send("Flavors Updated");
+  response.send;
 });
 
 router.get("/location/:id", checkJwt.checkJwt, (request, response) => {

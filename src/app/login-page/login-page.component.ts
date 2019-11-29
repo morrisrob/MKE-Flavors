@@ -9,11 +9,14 @@ import { ApiService } from "../shared/api.service";
 })
 export class LoginPageComponent implements OnInit {
   responseJson: string;
-
   constructor(public auth: AuthService, private api: ApiService) {}
 
   updateAllFlavors() {
     this.api.updateFlavors().subscribe(res => (this.responseJson = res));
+  }
+
+  pingApi() {
+    this.api.ping$().subscribe(res => (this.responseJson = res));
   }
 
   ngOnInit() {}

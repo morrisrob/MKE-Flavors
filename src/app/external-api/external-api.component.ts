@@ -16,4 +16,8 @@ export class ExternalApiComponent implements OnInit {
   getAllLocations() {
     this.api.ping$().subscribe(res => (this.responseJson = res));
   }
+
+  pingApi() {
+    this.api.ping$().subscribe(res => (this.responseJson = res));
+  }
 }
