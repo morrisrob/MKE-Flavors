@@ -27,14 +27,7 @@ export class AddLocationComponent implements OnInit {
   onSubmit() {
     let formData = this.addLocationForm.value;
     let formDataJSON = JSON.stringify(formData);
-    this.http
-      .post("/api/addLocation", formData, {
-        headers: new HttpHeaders().set(
-          "Authorization",
-          `Bearer ${environment.AUTH0_TOKEN}`
-        )
-      })
-      .subscribe();
+    this.http.post("/api/addLocation", formData, {}).subscribe();
 
     console.log("formData is " + FormData);
     console.log("formDataJSON is " + formDataJSON);

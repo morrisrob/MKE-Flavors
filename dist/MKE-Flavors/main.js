@@ -435,8 +435,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
-
 
 
 
@@ -462,11 +460,7 @@ let AddLocationComponent = class AddLocationComponent {
     onSubmit() {
         let formData = this.addLocationForm.value;
         let formDataJSON = JSON.stringify(formData);
-        this.http
-            .post("/api/addLocation", formData, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]().set("Authorization", `Bearer ${_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].AUTH0_TOKEN}`)
-        })
-            .subscribe();
+        this.http.post("/api/addLocation", formData, {}).subscribe();
         console.log("formData is " + FormData);
         console.log("formDataJSON is " + formDataJSON);
         this.addLocationForm.reset();
