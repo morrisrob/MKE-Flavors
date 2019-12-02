@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const checkJwt = require("../middleware/checkJwt");
 const ObjectId = require("mongodb").ObjectID;
 const getFlavors = require("../getflavors");
@@ -83,7 +83,7 @@ router.post("/add-flavor", checkJwt.checkJwt, (request, response) => {
     { upsert: true },
     function(err, result) {
       if (err) {
-        response.send({ error: "An error has occurred" });
+        response.send({ error: err });
       } else {
         response.send(result);
       }
