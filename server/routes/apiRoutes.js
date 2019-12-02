@@ -27,7 +27,8 @@ router.get("/locations", (request, response) => {
 
 router.get("/update-all-flavors", (request, response) => {
   getFlavors.getFlavorsDB();
-  response.send;
+  let result = { status: "flavors updated" };
+  response.status(200).send(result);
 });
 
 router.get("/location/:id", checkJwt.checkJwt, (request, response) => {

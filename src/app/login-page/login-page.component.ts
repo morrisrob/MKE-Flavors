@@ -14,10 +14,5 @@ export class LoginPageComponent implements OnInit {
   updateAllFlavors() {
     this.api.updateFlavors().subscribe(res => (this.responseJson = res));
   }
-
-  pingApi() {
-    this.api.ping$().subscribe(res => (this.responseJson = res));
-  }
-
   ngOnInit() {}
 }

@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!auth.loggedIn\">You are logged out</div>\n\n<div>\n  <button (click)=\"auth.login()\" *ngIf=\"!auth.loggedIn\">Log In</button>\n  <button (click)=\"auth.logout()\" *ngIf=\"auth.loggedIn\">Log Out</button>\n</div>\n\n<div *ngIf=\"auth.loggedIn\">\n  <a href=\"addlocation\">Add Location</a><br />\n  <a href=\"manualaddflavors\">Add Flavor</a>\n  <!-- <a href=\"updateAllFlavors()\">Update All Flavors</a> -->\n\n  <button (click)=\"pingApi()\">Ping API</button>\n  <button (click)=\"updateAllFlavors()\">Update All Flavors</button>\n\n  <pre *ngIf=\"responseJson\">\n    <code>{{ responseJson | json }}</code>\n  </pre>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!auth.loggedIn\">You are logged out</div>\n\n<div>\n  <button (click)=\"auth.login()\" *ngIf=\"!auth.loggedIn\">Log In</button>\n  <button (click)=\"auth.logout()\" *ngIf=\"auth.loggedIn\">Log Out</button>\n</div>\n\n<div *ngIf=\"auth.loggedIn\">\n  <a href=\"addlocation\">Add Location</a><br />\n  <a href=\"manualaddflavors\">Add Flavor</a><br />\n\n  <button (click)=\"updateAllFlavors()\">Update All Flavors</button>\n\n  <pre *ngIf=\"responseJson\">\n    <code>{{ responseJson | json }}</code>\n  </pre>\n</div>\n");
 
 /***/ }),
 
@@ -1283,9 +1283,6 @@ let LoginPageComponent = class LoginPageComponent {
     }
     updateAllFlavors() {
         this.api.updateFlavors().subscribe(res => (this.responseJson = res));
-    }
-    pingApi() {
-        this.api.ping$().subscribe(res => (this.responseJson = res));
     }
     ngOnInit() { }
 };
