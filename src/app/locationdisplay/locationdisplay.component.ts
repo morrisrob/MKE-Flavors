@@ -20,6 +20,8 @@ export class LocationdisplayComponent implements OnInit {
   geoLocationSupported: boolean;
   today = new Date();
   jstoday = "";
+  term: any;
+  p: number = 1;
 
   constructor(
     private geoLocation: GeolocationService,
